@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scala Puzzlers Reloaded</title>
+    <meta charset='utf-8'>
+    <meta content='width=1024, user-scalable=no' name='viewport'>
+    <!-- deck.js's core css -->
+    <link href="deck.js/core/deck.core.css" rel="stylesheet" type="text/css"/>
+    <!-- deck.js extension CSS files -->
+    <link href="deck.js/extensions/deck.js-codemirror/deck.codemirror.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/goto/deck.goto.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/hash/deck.hash.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/menu/deck.menu.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/navigation/deck.navigation.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/scale/deck.scale.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/status/deck.status.css" rel="stylesheet" type="text/css"/>
+    <!-- all css in the css dir: Keydown CSS, your custom CSS, and themes from deck.js -->
+    <link href="css/keydown.css" rel="stylesheet" type="text/css"/>
+    <link href="css/ambiance.css" rel="stylesheet" type="text/css"/>
+    <link href="css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="css/night.css" rel="stylesheet" type="text/css"/>
+    <link href="css/scala-puzzlers.css" rel="stylesheet" type="text/css"/>
+    <link href="css/swiss.css" rel="stylesheet" type="text/css"/>
+    <!-- Modernizr (provided for legacy browsers) -->
+    <script src="deck.js/support/modernizr.custom.js" type="text/javascript"></script>
+  </head>
+  <body class='deck-container keydown'>
+    <section class='intro slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <p><img src="images/logo.png"/>
+        Andrew Phillips &amp; Nermin Serifovic</p>
+        
+        <p><a href="http://twitter.com/ScalaPuzzlers">@ScalaPuzzlers</a></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What is a Puzzler?</h1>
+        
+        <ul>
+        <li>It has to cover an intentional language feature</li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What is a Puzzler?</h1>
+        
+        <ul>
+        <li>It has to cover an intentional language feature
+        
+        <ul>
+        <li>So no bugs</li>
+        </ul>
+        </li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What is a Puzzler?</h1>
+        
+        <ul>
+        <li>It has to cover an intentional language feature
+        
+        <ul>
+        <li>So no bugs</li>
+        </ul>
+        </li>
+        <li>Not just weird because you don't know Scala</li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What is a Puzzler?</h1>
+        
+        <ul>
+        <li>It has to cover an intentional language feature
+        
+        <ul>
+        <li>So no bugs</li>
+        </ul>
+        </li>
+        <li>Not just weird because you don't know Scala
+        
+        <ul>
+        <li>So no "what is this weird operator?!?"</li>
+        </ul>
+        </li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What is a Puzzler?</h1>
+        
+        <ul>
+        <li>It has to cover an intentional language feature
+        
+        <ul>
+        <li>So no bugs</li>
+        </ul>
+        </li>
+        <li>Not just weird because you don't know Scala
+        
+        <ul>
+        <li>So no "what is this weird operator?!?"</li>
+        </ul>
+        </li>
+        <li>Should be "surprising" or "non-intuitive" to <br/>a reasonably skilled Scala developer</li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What is a Puzzler?</h1>
+        
+        <ul>
+        <li>It has to cover an intentional language feature
+        
+        <ul>
+        <li>So no bugs</li>
+        </ul>
+        </li>
+        <li>Not just weird because you don't know Scala
+        
+        <ul>
+        <li>So no "what is this weird operator?!?"</li>
+        </ul>
+        </li>
+        <li>Should be "surprising" or "non-intuitive" to <br/>a reasonably skilled Scala developer
+        
+        <ul>
+        <li>For suitable definitions of <br/>"reasonably skilled" :-)</li>
+        </ul>
+        </li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Scala Version</h1>
+        
+        <p><img src="images/version.png" width="1178" height="146"></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>It'll be More Fun if...</h1>
+        
+        <p><img src="images/terminal.png" width="1099" height="749"></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Buckle Up</h1>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>A Case of Strings</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>def objFromJava: Object = "string"&#x000A;def stringFromJava: String = null&#x000A;&#x000A;def printLengthIfString(a: AnyRef) {&#x000A;  a match {&#x000A;    case s: String => println("String of length " + s.length)&#x000A;    case _ => println("Not a string")&#x000A;  }&#x000A;}&#x000A;&#x000A;printLengthIfString(objFromJava)&#x000A;printLengthIfString(stringFromJava)</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>A Case of Strings</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>def objFromJava: Object = "string"&#x000A;def stringFromJava: String = null&#x000A;&#x000A;def printLengthIfString(a: AnyRef) {&#x000A;  a match {&#x000A;    case s: String => println("String of length " + s.length)&#x000A;    case _ => println("Not a string")&#x000A;  }&#x000A;}&#x000A;&#x000A;printLengthIfString(objFromJava)&#x000A;printLengthIfString(stringFromJava)</textarea>
+    </p>
+        
+        <ol>
+        <li>Prints:<br/>
+        <strong>Not a string</strong><br/>
+        <strong>String of length 0</strong></li>
+        <li>The first prints: <strong>Not a string</strong><br/>
+        and the second fails with a <em>NullPointerException</em></li>
+        <li>Prints:<br/>
+        <strong>String of length 6</strong><br/>
+        <strong>Not a string</strong></li>
+        <li>The first prints: <strong>String of length 6</strong><br/>
+        and the second fails with a <em>NullPointerException</em></li>
+        </ol>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>A Case of Strings</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>def objFromJava: Object = "string"&#x000A;def stringFromJava: String = null&#x000A;&#x000A;def printLengthIfString(a: AnyRef) {&#x000A;  a match {&#x000A;    case s: String => println("String of length " + s.length)&#x000A;    case _ => println("Not a string")&#x000A;  }&#x000A;}&#x000A;&#x000A;printLengthIfString(objFromJava)&#x000A;printLengthIfString(stringFromJava)</textarea>
+    </p>
+        
+        <p>Prints:<br/>
+        <strong>String of length 6</strong><br/>
+        <strong>Not a string</strong></p>
+        
+        <p><em>null</em> is not an instance of String (inherited from Java)</p>
+        
+        <p>Must explicitly check for <em>nulls</em>.</p>
+        
+        <p>What is a better way to handle nulls?</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>All's Well That Folds Well</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>val ints = List(1, 2, 3)&#x000A;val accumulator: List[Int] = Nil&#x000A;&#x000A;val leftReversed = (ints foldLeft accumulator) { (acc, elem) => elem :: acc }&#x000A;val rightReversed = (ints foldRight accumulator) { (elem, acc) => acc :+ elem }&#x000A;println(leftReversed)&#x000A;println(rightReversed)&#x000A;&#x000A;// ...and back&#x000A;println((leftReversed /: accumulator) { (acc, elem) => elem :: acc })&#x000A;println((rightReversed :\ accumulator) { (elem, acc) => acc :+ elem })</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>All's Well That Folds Well</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>val ints = List(1, 2, 3)&#x000A;val accumulator: List[Int] = Nil&#x000A;&#x000A;val leftReversed = (ints foldLeft accumulator) { (acc, elem) => elem :: acc }&#x000A;val rightReversed = (ints foldRight accumulator) { (elem, acc) => acc :+ elem }&#x000A;println(leftReversed)&#x000A;println(rightReversed)&#x000A;&#x000A;// ...and back&#x000A;println((leftReversed /: accumulator) { (acc, elem) => elem :: acc })&#x000A;println((rightReversed :\ accumulator) { (elem, acc) => acc :+ elem })</textarea>
+    </p>
+        
+        <table>
+            <tr>
+                <td>
+                    1. Prints:<br/>
+                    <strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong><br/>
+                    <strong>List(1, 2, 3)<br/>List(1, 2, 3)</strong>
+                </td>
+                <td>
+                    2. Prints:<br/>
+                    <strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong><br/>
+                    <strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3. Prints:<br/>
+                    <strong>List(3, 2, 1)<br/>List(1, 2, 3)</strong><br/>
+                    <strong>List(1, 2, 3)<br/>List(3, 2, 1)</strong>
+                </td>
+                <td>
+                    4. Prints:<br/>
+                    <strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong><br/>
+                    <strong>List(3, 2, 1)<br/>List(1, 2, 3)</strong>
+                </td>
+            </tr>
+        </table>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>All's Well That Folds Well</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>val ints = List(1, 2, 3)&#x000A;val accumulator: List[Int] = Nil&#x000A;&#x000A;val leftReversed = (ints foldLeft accumulator) { (acc, elem) => elem :: acc }&#x000A;val rightReversed = (ints foldRight accumulator) { (elem, acc) => acc :+ elem }&#x000A;println(leftReversed)&#x000A;println(rightReversed)&#x000A;&#x000A;// ...and back&#x000A;println((leftReversed /: accumulator) { (acc, elem) => elem :: acc })&#x000A;println((rightReversed :\ accumulator) { (elem, acc) => acc :+ elem })</textarea>
+    </p>
+        
+        <p>Prints:<br/>
+        <strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong><br/>
+        <strong>List(3, 2, 1)<br/>List(1, 2, 3)</strong></p>
+        
+        <p>Operators ending in <em>:</em> are right associative</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Type Extortion</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>val (x, y) = (List(1,3,5), List(2,4,6)).zipped find (_._1 > 10) getOrElse (10)&#x000A;Console println s"Found $x"</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Type Extortion</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>val (x, y) = (List(1,3,5), List(2,4,6)).zipped find (_._1 > 10) getOrElse (10)&#x000A;Console println s"Found $x"</textarea>
+    </p>
+        
+        <ol>
+        <li>Prints:<br/>
+        <strong>Found 10</strong></li>
+        <li>Prints:<br/>
+        <strong>Found ()</strong></li>
+        <li>Fails with a compilation exception</li>
+        <li>Fails with a runtime exception</li>
+        </ol>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Type Extortion</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>val (x, y) = (List(1,3,5), List(2,4,6)).zipped find (_._1 > 10) getOrElse (10)&#x000A;Console println s"Found $x"</textarea>
+    </p>
+        
+        <p>Fails with a runtime exception</p>
+        
+        <p><em>Option.orElse</em> accepts a wider type, including <em>Any</em></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Pick an Int, Any Int!</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>class A {&#x000A;  type X // X <: Any &#x000A;  var x: X = _&#x000A;}&#x000A;&#x000A;class B extends A {&#x000A;  type X = Int&#x000A;}&#x000A;&#x000A;val b = new B&#x000A;println(b.x)&#x000A;&#x000A;val bX = b.x&#x000A;println(bX)</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Pick an Int, Any Int!</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>class A {&#x000A;  type X // X <: Any &#x000A;  var x: X = _&#x000A;}&#x000A;&#x000A;class B extends A {&#x000A;  type X = Int&#x000A;}&#x000A;&#x000A;val b = new B&#x000A;println(b.x)&#x000A;&#x000A;val bX = b.x&#x000A;println(bX)</textarea>
+    </p>
+        
+        <table>
+            <tr>
+                <td>
+                    1. The first fails at runtime<br/> with a NullPointerException,<br>
+                    the second prints: <strong>0</strong>
+                </td>
+                <td>
+                    2. Prints:<br/>
+                    <strong>0</strong><br/>
+                    <strong>0</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3. Prints:<br/>
+                    <strong>&lt;lazy&gt;</strong><br/>
+                    <strong>null</strong>
+                </td>
+                <td>
+                    4. Prints:<br/>
+                    <strong>null</strong><br/>
+                    <strong>0</strong>
+                </td>
+            </tr>
+        </table>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Pick an Int, Any Int!</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>class A {&#x000A;  type X // X <: Any &#x000A;  var x: X = _&#x000A;}&#x000A;&#x000A;class B extends A {&#x000A;  type X = Int&#x000A;}&#x000A;&#x000A;val b = new B&#x000A;println(b.x)&#x000A;&#x000A;val bX = b.x&#x000A;println(bX)</textarea>
+    </p>
+        
+        <p>Prints:<br/>
+        <strong>null</strong><br/>
+        <strong>0</strong></p>
+        
+        <p>Field x is uninitialized and <code>println</code> takes <em>Any</em> as a parameter,<br/> so unboxing does not happen.</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Cast Away</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>import scala.collection.JavaConverters._&#x000A;&#x000A;def fromJava: java.util.Map[String, java.lang.Integer] = {&#x000A;  val map = new java.util.HashMap[String, java.lang.Integer]()&#x000A;  map.put("key", null)&#x000A;  map&#x000A;}&#x000A;&#x000A;val map = fromJava.asScala.asInstanceOf[scala.collection.Map[String, Int]]&#x000A;&#x000A;println(map("key") == null)&#x000A;println(map("key") == 0)</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Cast Away</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>import scala.collection.JavaConverters._&#x000A;&#x000A;def fromJava: java.util.Map[String, java.lang.Integer] = {&#x000A;  val map = new java.util.HashMap[String, java.lang.Integer]()&#x000A;  map.put("key", null)&#x000A;  map&#x000A;}&#x000A;&#x000A;val map = fromJava.asScala.asInstanceOf[scala.collection.Map[String, Int]]&#x000A;&#x000A;println(map("key") == null)&#x000A;println(map("key") == 0)</textarea>
+    </p>
+        
+        <table>
+            <tr>
+                <td>
+                    1. Prints:<br/>
+                    <strong>true</strong><br/>
+                    <strong>true</strong>
+                </td>
+                <td>
+                    2. Both fail with a <strong>NullPointerException</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3. Prints:<br/>
+                    <strong>true</strong><br/>
+                    <strong>false</strong>
+                </td>
+                <td>
+                    4. Prints:<br/>
+                    <strong>false</strong><br/>
+                    <strong>true</strong>
+                </td>
+            </tr>
+        </table>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Cast Away</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>import scala.collection.JavaConverters._&#x000A;&#x000A;def fromJava: java.util.Map[String, java.lang.Integer] = {&#x000A;  val map = new java.util.HashMap[String, java.lang.Integer]()&#x000A;  map.put("key", null)&#x000A;  map&#x000A;}&#x000A;&#x000A;val map = fromJava.asScala.asInstanceOf[scala.collection.Map[String, Int]]&#x000A;&#x000A;println(map("key") == null)&#x000A;println(map("key") == 0)</textarea>
+    </p>
+        
+        <p>Prints:<br/>
+        <strong>true</strong><br/>
+        <strong>true</strong></p>
+        
+        <p>java.lang.Integer and scala.Int are not <em>quite</em> the same.</p>
+        
+        <p>Daniel Sobral: "Whenever you cast, you lie, and <em>anything</em> can come out of it."</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>I Can Has Padding?</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>implicit class Padder(val sb: StringBuilder) extends AnyVal {&#x000A;  def pad2(width: Int) = {&#x000A;    1 to width - sb.length foreach { sb append '*' }&#x000A;    sb&#x000A;  }&#x000A;}&#x000A;&#x000A;// greeting.length == 14&#x000A;val greeting = new StringBuilder("Hello, kitteh!")&#x000A;println(greeting pad2 20)&#x000A;&#x000A;// farewell.length == 9&#x000A;val farewell = new StringBuilder("U go now.")  // I hatez long bye-bye.&#x000A;println(farewell pad2 20)</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>I Can Has Padding?</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>implicit class Padder(val sb: StringBuilder) extends AnyVal {&#x000A;  def pad2(width: Int) = {&#x000A;    1 to width - sb.length foreach { sb append '*' }&#x000A;    sb&#x000A;  }&#x000A;}&#x000A;&#x000A;// greeting.length == 14&#x000A;val greeting = new StringBuilder("Hello, kitteh!")&#x000A;println(greeting pad2 20)&#x000A;&#x000A;// farewell.length == 9&#x000A;val farewell = new StringBuilder("U go now.")  // I hatez long bye-bye.&#x000A;println(farewell pad2 20)</textarea>
+    </p>
+        
+        <ol>
+        <li>Prints:<br/>
+        <strong>Hello, kitteh!&#42;&#42;&#42;&#42;&#42;&#42;</strong><br/>
+        <strong>U go now.&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;</strong></li>
+        <li>The first one succeeds and prints:
+        <strong>Hello, kitteh!&#42;</strong><br/>
+        and the second one fails with a runtime exception</li>
+        <li>The first one fails with a runtime exception<br/> and the second one prints:
+        <strong>U go now.&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;</strong></li>
+        <li>Does not compile</li>
+        </ol>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>I Can Has Padding?</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>implicit class Padder(val sb: StringBuilder) extends AnyVal {&#x000A;  def pad2(width: Int) = {&#x000A;    1 to width - sb.length foreach { sb append '*' }&#x000A;    sb&#x000A;  }&#x000A;}&#x000A;&#x000A;// greeting.length == 14&#x000A;val greeting = new StringBuilder("Hello, kitteh!")&#x000A;println(greeting pad2 20)&#x000A;&#x000A;// farewell.length == 9&#x000A;val farewell = new StringBuilder("U go now.")  // I hatez long bye-bye.&#x000A;println(farewell pad2 20)</textarea>
+    </p>
+        
+        <p>The first one succeeds and prints:<br/>
+        <strong>Hello, kitteh!&#42;</strong><br/>
+        and the second one fails with a runtime exception</p>
+        
+        <p>Scala has a StringBuilder that shadows java.lang.StringBuilder and it has an apply method which is an alias for StringBuilder.charAt</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Count Me Now, Count Me Later</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>var x = 0&#x000A;def counter = { x += 1; x }&#x000A;def add(a: Int)(b: Int) = a + b&#x000A;val adder1 = add(counter)(_)&#x000A;val adder2 = add(counter) _&#x000A;&#x000A;println("x = " + x + ", a1= " + adder1(10))&#x000A;println("x = " + x + ", a2= " + adder2(10))&#x000A;println("x = " + x)</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Count Me Now, Count Me Later</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>var x = 0&#x000A;def counter = { x += 1; x }&#x000A;def add(a: Int)(b: Int) = a + b&#x000A;val adder1 = add(counter)(_)&#x000A;val adder2 = add(counter) _&#x000A;&#x000A;println("x = " + x + ", a1= " + adder1(10))&#x000A;println("x = " + x + ", a2= " + adder2(10))&#x000A;println("x = " + x)</textarea>
+    </p>
+        
+        <table>
+            <tr>
+                <td>
+                    1. Prints: <br/>
+                    <strong>x = 1, a1 = 12</strong><br/>
+                    <strong>x = 2, a2 = 11</strong><br/>
+                    <strong>x = 2</strong>
+                </td>
+                <td>
+                    2. Prints: <br/>
+                    <strong>x = 1, a1 = 11</strong><br/>
+                    <strong>x = 1, a2 = 12</strong><br/>
+                    <strong>x = 2</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3. Prints: <br/>
+                    <strong>x = 0, a1 = 11</strong><br/>
+                    <strong>x = 1, a2 = 12</strong><br/>
+                    <strong>x = 2</strong>      
+                </td>
+                <td>
+                    4. Prints: <br/>
+                    <strong>x = 2, a1 = 11</strong><br/>
+                    <strong>x = 2, a2 = 12</strong><br/>
+                    <strong>x = 2</strong>
+                </td>
+            </tr>
+        </table>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Count Me Now, Count Me Later</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>var x = 0&#x000A;def counter = { x += 1; x }&#x000A;def add(a: Int)(b: Int) = a + b&#x000A;val adder1 = add(counter)(_)&#x000A;val adder2 = add(counter) _&#x000A;&#x000A;println("x = " + x + ", a1= " + adder1(10))&#x000A;println("x = " + x + ", a2= " + adder2(10))&#x000A;println("x = " + x)</textarea>
+    </p>
+        
+        <p>The first one succeeds and prints:<br/>
+        <strong>Hello, kitteh!&#42;</strong><br/>
+        and the second one fails with a runtime exception</p>
+        
+        <p>Scala has a StringBuilder that shadows java.lang.StringBuilder<br/> and it has an apply method which is an alias for<br/> StringBuilder.charAt</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>The Trouble With Traits 2</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>trait A {&#x000A;  val foo: Int&#x000A;  val bar = 10&#x000A;  println("In A: foo: " + foo + ", bar: " + bar)&#x000A;}&#x000A;&#x000A;class B extends A {&#x000A;  val foo: Int = 25&#x000A;  println("In B: foo: " + foo + ", bar: " + bar)&#x000A;}&#x000A;&#x000A;class C extends B {&#x000A;  override val bar = 99&#x000A;  println("In C: foo: " + foo + ", bar: " + bar)&#x000A;}&#x000A;&#x000A;new C</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>The Trouble With Traits 2</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>trait A {&#x000A;  val foo: Int&#x000A;  val bar = 10&#x000A;  println("In A: foo: " + foo + ", bar: " + bar)&#x000A;}&#x000A;&#x000A;class B extends A {&#x000A;  val foo: Int = 25&#x000A;  println("In B: foo: " + foo + ", bar: " + bar)&#x000A;}&#x000A;&#x000A;class C extends B {&#x000A;  override val bar = 99&#x000A;  println("In C: foo: " + foo + ", bar: " + bar)&#x000A;}&#x000A;&#x000A;new C</textarea>
+    </p>
+        
+        <table>
+            <tr>
+                <td>
+                    1.<br/>
+                    In A: foo: 0, bar: 0<br/>
+                    In B: foo: 25, bar: 0<br/>
+                    In C: foo: 25, bar: 99
+                </td>
+                <td>
+                    2.<br/>
+                    In A: foo: 0, bar: 10<br/>
+                    In B: foo: 25, bar: 10<br/>
+                    In C: foo: 25, bar: 99
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3.<br/>
+                    In A: foo: 0, bar: 0<br/>
+                    In B: foo: 25, bar: 99<br/>
+                    In C: foo: 25, bar: 99      
+                </td>
+                <td>
+                    4.<br/>
+                    In A: foo: 25, bar: 99<br/>
+                    In B: foo: 25, bar: 99<br/>
+                    In C: foo: 25, bar: 99
+                </td>
+            </tr>
+        </table>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>The Trouble With Traits 2</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>trait A {&#x000A;  val foo: Int&#x000A;  val bar = 10&#x000A;  println("In A: foo: " + foo + ", bar: " + bar)&#x000A;}&#x000A;&#x000A;class B extends A {&#x000A;  val foo: Int = 25&#x000A;  println("In B: foo: " + foo + ", bar: " + bar)&#x000A;}&#x000A;&#x000A;class C extends B {&#x000A;  override val bar = 99&#x000A;  println("In C: foo: " + foo + ", bar: " + bar)&#x000A;}&#x000A;&#x000A;new C</textarea>
+    </p>
+        
+        <p>In A: foo: 0, bar: 0<br/>
+        In B: foo: 25, bar: 0<br/>
+        In C: foo: 25, bar: 99</p>
+        
+        <p> The Scala compiler will only initialize vals once</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Thanks!</h1>
+        
+        <h1>Questions!</h1>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <!-- deck.js navigation extension -->
+    <a class='deck-prev-link' href='#' title='Previous'>&#8592;</a>
+    <a class='deck-next-link' href='#' title='Next'>&#8594;</a>
+    <!-- deck.js hash extension -->
+    <a class='deck-permalink' href='.' title='Permalink to this slide'>#</a>
+    <!-- deck.js status extension -->
+    <p class='deck-status'>
+      <span class='deck-status-current'></span>
+      /
+      <span class='deck-status-total'></span>
+    </p>
+    <!-- jQuery & deck.js -->
+    <script src="deck.js/support/jquery.1.6.4.min.js" type="text/javascript"></script>
+    <script src="deck.js/core/deck.core.js" type="text/javascript"></script>
+    <!-- deck.js extension JS files -->
+    <script src="deck.js/extensions/deck.js-codemirror/codemirror.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/deck.codemirror.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/introduction/introduction.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/introduction/modernizr.custom.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/clike/clike.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/clojure/clojure.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/coffeescript/coffeescript.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/css/css.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/diff/diff.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/haskell/haskell.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/htmlmixed/htmlmixed.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/javascript/javascript.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/lua/lua.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/php/php.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/plsql/plsql.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/python/python.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/r/r.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/rst/rst.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/ruby/ruby.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/scheme/scheme.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/smalltalk/smalltalk.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/sparql/sparql.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/stex/stex.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/velocity/velocity.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/xml/xml.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/xmlpure/xmlpure.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/yaml/yaml.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/scala_completion.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/goto/deck.goto.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/hash/deck.hash.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/menu/deck.menu.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/navigation/deck.navigation.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/scale/deck.scale.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/status/deck.status.js" type="text/javascript"></script>
+    <!-- your custom JS here, including call to initialize deck.js-codemirror -->
+    <script src="js/scala-puzzlers.js" type="text/javascript"></script>
+    <!-- Initialize the deck. -->
+    <script type='text/javascript'>
+      $(function() { $.deck('.slide'); });
+    </script>
+  </body>
+</html>
