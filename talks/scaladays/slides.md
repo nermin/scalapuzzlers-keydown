@@ -1,10 +1,18 @@
 # Scala Puzzlers Reloaded
 
 !SLIDE intro
-<img src="images/logo.png"/>
+<img src="images/logo2.png"/>
 Andrew Phillips & Nermin Serifovic
 
 [@ScalaPuzzlers](http://twitter.com/ScalaPuzzlers) 
+
+!SLIDE left top
+
+# First Things First
+
+##Thanks!
+
+<img src="images/scaladays.png"/>
 
 !SLIDE left top
 
@@ -60,18 +68,15 @@ Andrew Phillips & Nermin Serifovic
 
 !SLIDE left top
 # It'll be More Fun if...
-<img src="images/terminal.png" width="1099" height="749">
+<img src="images/terminal2.png" width="1099" height="749">
 
 !SLIDE left top
 # Buckle Up
 
+<img src="images/readysetgo.jpg"/>
  
 
-   
-   
-   
-   
-   
+ 
    
 
 !SLIDE left top
@@ -112,15 +117,15 @@ printLengthIfString(stringFromJava)
 ```
 
 1. Prints:<br/>
-**Not a string**<br/>
-**String of length 0**
-2. The first prints: **Not a string**<br/> 
-and the second fails with a *NullPointerException*
+`Not a string`<br/>
+`String of length 0`
+2. The first prints: `Not a string`<br/> 
+and the second fails with a `NullPointerException`
 3. Prints:<br/>
-**String of length 6**<br/>
-**Not a string**
-4. The first prints: **String of length 6**<br/> 
-and the second fails with a *NullPointerException*
+`String of length 6`<br/>
+`Not a string`
+4. The first prints: `String of length 6`<br/> 
+and the second fails with a `NullPointerException`
 
 !SLIDE left top
 
@@ -141,14 +146,14 @@ printLengthIfString(stringFromJava)
 ```
 
 Prints:<br/>
-**String of length 6**<br/>
-**Not a string**
+`String of length 6`<br/>
+`Not a string`
 
 *null* is not an instance of String (inherited from Java)
 
 Must explicitly check for *nulls*.
 
-What is a better way to handle nulls?
+What is a better way to handle *nulls*?
 
 !SLIDE left top
 
@@ -188,25 +193,25 @@ println((rightReversed :\ accumulator) { (elem, acc) => acc :+ elem })
 	<tr>
 		<td>
 			1. Prints:<br/>
-			<strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong><br/>
-			<strong>List(1, 2, 3)<br/>List(1, 2, 3)</strong>
+			<code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+			<code>List(1, 2, 3)<br/>List(1, 2, 3)</code>
 		</td>
 		<td>
 			2. Prints:<br/>
-			<strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong><br/>
-			<strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong>
+			<code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+			<code>List(3, 2, 1)<br/>List(3, 2, 1)</code>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			3. Prints:<br/>
-			<strong>List(3, 2, 1)<br/>List(1, 2, 3)</strong><br/>
-			<strong>List(1, 2, 3)<br/>List(3, 2, 1)</strong>
+			<code>List(3, 2, 1)<br/>List(1, 2, 3)</code><br/>
+			<code>List(1, 2, 3)<br/>List(3, 2, 1)</code>
 		</td>
 		<td>
 			4. Prints:<br/>
-			<strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong><br/>
-			<strong>List(3, 2, 1)<br/>List(1, 2, 3)</strong>
+			<code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+			<code>List(3, 2, 1)<br/>List(1, 2, 3)</code>
 		</td>
 	</tr>
 </table>
@@ -234,8 +239,8 @@ println((rightReversed :\ accumulator) { (elem, acc) => acc :+ elem })
 ```
 
 Prints:<br/>
-**List(3, 2, 1)<br/>List(3, 2, 1)**<br/>
-**List(3, 2, 1)<br/>List(1, 2, 3)**
+<code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+<code>List(3, 2, 1)<br/>List(1, 2, 3)</code>
 
 Operators ending in *:* are right associative
 
@@ -256,9 +261,9 @@ Console println s"Found $x"
 ```
 
 1. Prints:<br/>
-**Found 10**
+`Found 10`
 2. Prints:<br/>
-**Found ()**
+`Found ()`
 3. Fails with a compilation exception
 4. Fails with a runtime exception
 
@@ -318,25 +323,25 @@ println(bX)
 <table>
 	<tr>
 		<td>
-			1. The first fails at runtime<br/> with a NullPointerException,<br>
-			the second prints: <strong>0</strong>
+			1. The first fails at runtime<br/> with a <code>NullPointerException</code>,<br>
+			the second prints: <code>0</code>
 		</td>
 		<td>
 			2. Prints:<br/>
-			<strong>0</strong><br/>
-			<strong>0</strong>
+			<code>0</code><br/>
+			<code>0</code>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			3. Prints:<br/>
-			<strong>&lt;lazy&gt;</strong><br/>
-			<strong>null</strong>
+			<code>&lt;lazy&gt;</code><br/>
+			<code>null</code>
 		</td>
 		<td>
 			4. Prints:<br/>
-			<strong>null</strong><br/>
-			<strong>0</strong>
+			<code>null</code><br/>
+			<code>0</code>
 		</td>
 	</tr>
 </table>
@@ -364,10 +369,10 @@ println(bX)
 ```
 
 Prints:<br/>
-**null**<br/>
-**0**
+`null`<br/>
+`0`
 
-Field x is uninitialized and `println` takes *Any* as a parameter,<br/> so unboxing does not happen.
+Field x is uninitialized and *println* takes *Any* as a parameter,<br/> so unboxing does not happen.
 
 !SLIDE left top
 
@@ -408,23 +413,23 @@ println(map("key") == 0)
 	<tr>
 		<td>
 			1. Prints:<br/>
-			<strong>true</strong><br/>
-			<strong>true</strong>
+			<code>true</code><br/>
+			<code>true</code>
 		</td>
 		<td>
-			2. Both fail with a <strong>NullPointerException</strong>
+			2. Both fail with a <br/><code>NullPointerException</code>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			3. Prints:<br/>
-			<strong>true</strong><br/>
-			<strong>false</strong>
+			<code>true</code><br/>
+			<code>false</code>
 		</td>
 		<td>
 			4. Prints:<br/>
-			<strong>false</strong><br/>
-			<strong>true</strong>
+			<code>false</code><br/>
+			<code>true</code>
 		</td>
 	</tr>
 </table>
@@ -449,10 +454,10 @@ println(map("key") == 0)
 ```
 
 Prints:<br/>
-**true**<br/>
-**true**
+`true`<br/>
+`true`
 
-java.lang.Integer and scala.Int are not *quite* the same.
+*java.lang.Integer* and *scala.Int* are not *quite* the same.
 
 Daniel Sobral: "Whenever you cast, you lie, and *anything* can come out of it."
 
@@ -497,13 +502,13 @@ println(farewell pad2 20)
 ```
 
 1. Prints:<br/>
-**Hello, kitteh!&#42;&#42;&#42;&#42;&#42;&#42;**<br/>
-**U go now.&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;**
+<code>Hello, kitteh!&#42;&#42;&#42;&#42;&#42;&#42;</code><br/>
+<code>U go now.&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;</code>
 2. The first one succeeds and prints:
-**Hello, kitteh!&#42;**<br/>
+<code>Hello, kitteh!&#42;</code><br/>
 and the second one fails with a runtime exception
 3. The first one fails with a runtime exception<br/> and the second one prints:
-**U go now.&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;**
+<code>U go now.&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;</code>
 4. Does not compile
 
 !SLIDE left top
@@ -527,10 +532,10 @@ println(farewell pad2 20)
 ```
 
 The first one succeeds and prints:<br/>
-**Hello, kitteh!&#42;**<br/>
+<code>Hello, kitteh!&#42;</code><br/>
 and the second one fails with a runtime exception
 
-Scala has a StringBuilder that shadows java.lang.StringBuilder and it has an apply method which is an alias for StringBuilder.charAt
+Scala has a StringBuilder that shadows *java.lang.StringBuilder* and it has an apply method which is an alias for *StringBuilder.charAt*
 
 !SLIDE left top
 
@@ -565,29 +570,29 @@ println("x = " + x)
 	<tr>
 		<td>
 			1. Prints: <br/>
-			<strong>x = 1, a1 = 12</strong><br/>
-			<strong>x = 2, a2 = 11</strong><br/>
-			<strong>x = 2</strong>
+			<code>x = 1, a1 = 12</code><br/>
+			<code>x = 2, a2 = 11</code><br/>
+			<code>x = 2</code>
 		</td>
 		<td>
 			2. Prints: <br/>
-			<strong>x = 1, a1 = 11</strong><br/>
-			<strong>x = 1, a2 = 12</strong><br/>
-			<strong>x = 2</strong>
+			<code>x = 1, a1 = 11</code><br/>
+			<code>x = 1, a2 = 12</code><br/>
+			<code>x = 2</code>
 		</td>
 	</tr>
 	<tr>
 		<td>
 			3. Prints: <br/>
-			<strong>x = 0, a1 = 11</strong><br/>
-			<strong>x = 1, a2 = 12</strong><br/>
-			<strong>x = 2</strong>		
+			<code>x = 0, a1 = 11</code><br/>
+			<code>x = 1, a2 = 12</code><br/>
+			<code>x = 2</code>		
 		</td>
 		<td>
 			4. Prints: <br/>
-			<strong>x = 2, a1 = 11</strong><br/>
-			<strong>x = 2, a2 = 12</strong><br/>
-			<strong>x = 2</strong>
+			<code>x = 2, a1 = 11</code><br/>
+			<code>x = 2, a2 = 12</code><br/>
+			<code>x = 2</code>
 		</td>
 	</tr>
 </table>
@@ -607,11 +612,12 @@ println("x = " + x + ", a2= " + adder2(10))
 println("x = " + x)
 ```
 
-The first one succeeds and prints:<br/>
-**Hello, kitteh!&#42;**<br/>
-and the second one fails with a runtime exception
+Prints: <br/>
+<code>x = 1, a1 = 12</code><br/>
+<code>x = 2, a2 = 11</code><br/>
+<code>x = 2</code>
 
-Scala has a StringBuilder that shadows java.lang.StringBuilder<br/> and it has an apply method which is an alias for<br/> StringBuilder.charAt
+These two *adders* have different semantics<br/> as to when the arguments get evaluated.
 
 !SLIDE left top
 
@@ -661,30 +667,30 @@ new C
 <table>
 	<tr>
 		<td>
-			1.<br/>
-			In A: foo: 0, bar: 0<br/>
-			In B: foo: 25, bar: 0<br/>
-			In C: foo: 25, bar: 99
+			1. Prints:<br/>
+			<code>In A: foo: 0, bar: 0</code><br/>
+			<code>In B: foo: 25, bar: 0</code><br/>
+			<code>In C: foo: 25, bar: 99
 		</td>
 		<td>
-			2.<br/>
-			In A: foo: 0, bar: 10<br/>
-			In B: foo: 25, bar: 10<br/>
-			In C: foo: 25, bar: 99
+			2. Prints:<br/>
+			<code>In A: foo: 0, bar: 10</code><br/>
+			<code>In B: foo: 25, bar: 10</code><br/>
+			<code>In C: foo: 25, bar: 99</code>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			3.<br/>
-			In A: foo: 0, bar: 0<br/>
-			In B: foo: 25, bar: 99<br/>
-			In C: foo: 25, bar: 99		
+			3. Prints:<br/>
+			<code>In A: foo: 0, bar: 0</code><br/>
+			<code>In B: foo: 25, bar: 99</code><br/>
+			<code>In C: foo: 25, bar: 99</code>		
 		</td>
 		<td>
-			4.<br/>
-			In A: foo: 25, bar: 99<br/>
-			In B: foo: 25, bar: 99<br/>
-			In C: foo: 25, bar: 99
+			4. Prints:<br/>
+			<code>In A: foo: 25, bar: 99</code><br/>
+			<code>In B: foo: 25, bar: 99</code><br/>
+			<code>In C: foo: 25, bar: 99</code>
 		</td>
 	</tr>
 </table>
@@ -712,20 +718,22 @@ class C extends B {
 new C
 ```
 
-In A: foo: 0, bar: 0<br/>
-In B: foo: 25, bar: 0<br/>
-In C: foo: 25, bar: 99
+Prints:<br/>
+`In A: foo: 0, bar: 0`<br/>
+`In B: foo: 25, bar: 0`<br/>
+`In C: foo: 25, bar: 99`
+
+The Scala compiler will only initialize vals once
 
 
- The Scala compiler will only initialize vals once
 
 
+!SLIDE left top
+# Thanks! 
 
+## Any questions?
 
-!SLIDE
-# Thanks!
-
-# Questions!
+Slides prepared using replhtml from @retronym: https://gist.github.com/retronym/5520762
 
 
 

@@ -28,10 +28,21 @@
     <section class='intro slide'>
       <div class='spacer top'></div>
       <div class='content'>
-        <p><img src="images/logo.png"/>
+        <p><img src="images/logo2.png"/>
         Andrew Phillips &amp; Nermin Serifovic</p>
         
         <p><a href="http://twitter.com/ScalaPuzzlers">@ScalaPuzzlers</a></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>First Things First</h1>
+        
+        <h2>Thanks!</h2>
+        
+        <p><img src="images/scaladays.png"/></p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -166,7 +177,7 @@
       <div class='content'>
         <h1>It'll be More Fun if...</h1>
         
-        <p><img src="images/terminal.png" width="1099" height="749"></p>
+        <p><img src="images/terminal2.png" width="1099" height="749"></p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -174,6 +185,8 @@
       <div class='spacer top'></div>
       <div class='content'>
         <h1>Buckle Up</h1>
+        
+        <p><img src="images/readysetgo.jpg"/></p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -197,15 +210,15 @@
         
         <ol>
         <li>Prints:<br/>
-        <strong>Not a string</strong><br/>
-        <strong>String of length 0</strong></li>
-        <li>The first prints: <strong>Not a string</strong><br/>
-        and the second fails with a <em>NullPointerException</em></li>
+        <code>Not a string</code><br/>
+        <code>String of length 0</code></li>
+        <li>The first prints: <code>Not a string</code><br/>
+        and the second fails with a <code>NullPointerException</code></li>
         <li>Prints:<br/>
-        <strong>String of length 6</strong><br/>
-        <strong>Not a string</strong></li>
-        <li>The first prints: <strong>String of length 6</strong><br/>
-        and the second fails with a <em>NullPointerException</em></li>
+        <code>String of length 6</code><br/>
+        <code>Not a string</code></li>
+        <li>The first prints: <code>String of length 6</code><br/>
+        and the second fails with a <code>NullPointerException</code></li>
         </ol>
       </div>
       <div class='spacer bottom'></div>
@@ -219,14 +232,14 @@
     </p>
         
         <p>Prints:<br/>
-        <strong>String of length 6</strong><br/>
-        <strong>Not a string</strong></p>
+        <code>String of length 6</code><br/>
+        <code>Not a string</code></p>
         
         <p><em>null</em> is not an instance of String (inherited from Java)</p>
         
         <p>Must explicitly check for <em>nulls</em>.</p>
         
-        <p>What is a better way to handle nulls?</p>
+        <p>What is a better way to handle <em>nulls</em>?</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -252,25 +265,25 @@
             <tr>
                 <td>
                     1. Prints:<br/>
-                    <strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong><br/>
-                    <strong>List(1, 2, 3)<br/>List(1, 2, 3)</strong>
+                    <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+                    <code>List(1, 2, 3)<br/>List(1, 2, 3)</code>
                 </td>
                 <td>
                     2. Prints:<br/>
-                    <strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong><br/>
-                    <strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong>
+                    <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+                    <code>List(3, 2, 1)<br/>List(3, 2, 1)</code>
                 </td>
             </tr>
             <tr>
                 <td>
                     3. Prints:<br/>
-                    <strong>List(3, 2, 1)<br/>List(1, 2, 3)</strong><br/>
-                    <strong>List(1, 2, 3)<br/>List(3, 2, 1)</strong>
+                    <code>List(3, 2, 1)<br/>List(1, 2, 3)</code><br/>
+                    <code>List(1, 2, 3)<br/>List(3, 2, 1)</code>
                 </td>
                 <td>
                     4. Prints:<br/>
-                    <strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong><br/>
-                    <strong>List(3, 2, 1)<br/>List(1, 2, 3)</strong>
+                    <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+                    <code>List(3, 2, 1)<br/>List(1, 2, 3)</code>
                 </td>
             </tr>
         </table>
@@ -286,8 +299,8 @@
     </p>
         
         <p>Prints:<br/>
-        <strong>List(3, 2, 1)<br/>List(3, 2, 1)</strong><br/>
-        <strong>List(3, 2, 1)<br/>List(1, 2, 3)</strong></p>
+        <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+        <code>List(3, 2, 1)<br/>List(1, 2, 3)</code></p>
         
         <p>Operators ending in <em>:</em> are right associative</p>
       </div>
@@ -313,9 +326,9 @@
         
         <ol>
         <li>Prints:<br/>
-        <strong>Found 10</strong></li>
+        <code>Found 10</code></li>
         <li>Prints:<br/>
-        <strong>Found ()</strong></li>
+        <code>Found ()</code></li>
         <li>Fails with a compilation exception</li>
         <li>Fails with a runtime exception</li>
         </ol>
@@ -357,25 +370,25 @@
         <table>
             <tr>
                 <td>
-                    1. The first fails at runtime<br/> with a NullPointerException,<br>
-                    the second prints: <strong>0</strong>
+                    1. The first fails at runtime<br/> with a <code>NullPointerException</code>,<br>
+                    the second prints: <code>0</code>
                 </td>
                 <td>
                     2. Prints:<br/>
-                    <strong>0</strong><br/>
-                    <strong>0</strong>
+                    <code>0</code><br/>
+                    <code>0</code>
                 </td>
             </tr>
             <tr>
                 <td>
                     3. Prints:<br/>
-                    <strong>&lt;lazy&gt;</strong><br/>
-                    <strong>null</strong>
+                    <code>&lt;lazy&gt;</code><br/>
+                    <code>null</code>
                 </td>
                 <td>
                     4. Prints:<br/>
-                    <strong>null</strong><br/>
-                    <strong>0</strong>
+                    <code>null</code><br/>
+                    <code>0</code>
                 </td>
             </tr>
         </table>
@@ -391,10 +404,10 @@
     </p>
         
         <p>Prints:<br/>
-        <strong>null</strong><br/>
-        <strong>0</strong></p>
+        <code>null</code><br/>
+        <code>0</code></p>
         
-        <p>Field x is uninitialized and <code>println</code> takes <em>Any</em> as a parameter,<br/> so unboxing does not happen.</p>
+        <p>Field x is uninitialized and <em>println</em> takes <em>Any</em> as a parameter,<br/> so unboxing does not happen.</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -420,23 +433,23 @@
             <tr>
                 <td>
                     1. Prints:<br/>
-                    <strong>true</strong><br/>
-                    <strong>true</strong>
+                    <code>true</code><br/>
+                    <code>true</code>
                 </td>
                 <td>
-                    2. Both fail with a <strong>NullPointerException</strong>
+                    2. Both fail with a <br/><code>NullPointerException</code>
                 </td>
             </tr>
             <tr>
                 <td>
                     3. Prints:<br/>
-                    <strong>true</strong><br/>
-                    <strong>false</strong>
+                    <code>true</code><br/>
+                    <code>false</code>
                 </td>
                 <td>
                     4. Prints:<br/>
-                    <strong>false</strong><br/>
-                    <strong>true</strong>
+                    <code>false</code><br/>
+                    <code>true</code>
                 </td>
             </tr>
         </table>
@@ -452,10 +465,10 @@
     </p>
         
         <p>Prints:<br/>
-        <strong>true</strong><br/>
-        <strong>true</strong></p>
+        <code>true</code><br/>
+        <code>true</code></p>
         
-        <p>java.lang.Integer and scala.Int are not <em>quite</em> the same.</p>
+        <p><em>java.lang.Integer</em> and <em>scala.Int</em> are not <em>quite</em> the same.</p>
         
         <p>Daniel Sobral: "Whenever you cast, you lie, and <em>anything</em> can come out of it."</p>
       </div>
@@ -481,13 +494,13 @@
         
         <ol>
         <li>Prints:<br/>
-        <strong>Hello, kitteh!&#42;&#42;&#42;&#42;&#42;&#42;</strong><br/>
-        <strong>U go now.&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;</strong></li>
+        <code>Hello, kitteh!&#42;&#42;&#42;&#42;&#42;&#42;</code><br/>
+        <code>U go now.&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;</code></li>
         <li>The first one succeeds and prints:
-        <strong>Hello, kitteh!&#42;</strong><br/>
+        <code>Hello, kitteh!&#42;</code><br/>
         and the second one fails with a runtime exception</li>
         <li>The first one fails with a runtime exception<br/> and the second one prints:
-        <strong>U go now.&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;</strong></li>
+        <code>U go now.&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;</code></li>
         <li>Does not compile</li>
         </ol>
       </div>
@@ -502,10 +515,10 @@
     </p>
         
         <p>The first one succeeds and prints:<br/>
-        <strong>Hello, kitteh!&#42;</strong><br/>
+        <code>Hello, kitteh!&#42;</code><br/>
         and the second one fails with a runtime exception</p>
         
-        <p>Scala has a StringBuilder that shadows java.lang.StringBuilder and it has an apply method which is an alias for StringBuilder.charAt</p>
+        <p>Scala has a StringBuilder that shadows <em>java.lang.StringBuilder</em> and it has an apply method which is an alias for <em>StringBuilder.charAt</em></p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -531,29 +544,29 @@
             <tr>
                 <td>
                     1. Prints: <br/>
-                    <strong>x = 1, a1 = 12</strong><br/>
-                    <strong>x = 2, a2 = 11</strong><br/>
-                    <strong>x = 2</strong>
+                    <code>x = 1, a1 = 12</code><br/>
+                    <code>x = 2, a2 = 11</code><br/>
+                    <code>x = 2</code>
                 </td>
                 <td>
                     2. Prints: <br/>
-                    <strong>x = 1, a1 = 11</strong><br/>
-                    <strong>x = 1, a2 = 12</strong><br/>
-                    <strong>x = 2</strong>
+                    <code>x = 1, a1 = 11</code><br/>
+                    <code>x = 1, a2 = 12</code><br/>
+                    <code>x = 2</code>
                 </td>
             </tr>
             <tr>
                 <td>
                     3. Prints: <br/>
-                    <strong>x = 0, a1 = 11</strong><br/>
-                    <strong>x = 1, a2 = 12</strong><br/>
-                    <strong>x = 2</strong>      
+                    <code>x = 0, a1 = 11</code><br/>
+                    <code>x = 1, a2 = 12</code><br/>
+                    <code>x = 2</code>      
                 </td>
                 <td>
                     4. Prints: <br/>
-                    <strong>x = 2, a1 = 11</strong><br/>
-                    <strong>x = 2, a2 = 12</strong><br/>
-                    <strong>x = 2</strong>
+                    <code>x = 2, a1 = 11</code><br/>
+                    <code>x = 2, a2 = 12</code><br/>
+                    <code>x = 2</code>
                 </td>
             </tr>
         </table>
@@ -568,11 +581,12 @@
         <p><textarea class='code' display='none' mode='text/x-scala'>var x = 0&#x000A;def counter = { x += 1; x }&#x000A;def add(a: Int)(b: Int) = a + b&#x000A;val adder1 = add(counter)(_)&#x000A;val adder2 = add(counter) _&#x000A;&#x000A;println("x = " + x + ", a1= " + adder1(10))&#x000A;println("x = " + x + ", a2= " + adder2(10))&#x000A;println("x = " + x)</textarea>
     </p>
         
-        <p>The first one succeeds and prints:<br/>
-        <strong>Hello, kitteh!&#42;</strong><br/>
-        and the second one fails with a runtime exception</p>
+        <p>Prints: <br/>
+        <code>x = 1, a1 = 12</code><br/>
+        <code>x = 2, a2 = 11</code><br/>
+        <code>x = 2</code></p>
         
-        <p>Scala has a StringBuilder that shadows java.lang.StringBuilder<br/> and it has an apply method which is an alias for<br/> StringBuilder.charAt</p>
+        <p>These two <em>adders</em> have different semantics<br/> as to when the arguments get evaluated.</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -597,30 +611,30 @@
         <table>
             <tr>
                 <td>
-                    1.<br/>
-                    In A: foo: 0, bar: 0<br/>
-                    In B: foo: 25, bar: 0<br/>
-                    In C: foo: 25, bar: 99
+                    1. Prints:<br/>
+                    <code>In A: foo: 0, bar: 0</code><br/>
+                    <code>In B: foo: 25, bar: 0</code><br/>
+                    <code>In C: foo: 25, bar: 99
                 </td>
                 <td>
-                    2.<br/>
-                    In A: foo: 0, bar: 10<br/>
-                    In B: foo: 25, bar: 10<br/>
-                    In C: foo: 25, bar: 99
+                    2. Prints:<br/>
+                    <code>In A: foo: 0, bar: 10</code><br/>
+                    <code>In B: foo: 25, bar: 10</code><br/>
+                    <code>In C: foo: 25, bar: 99</code>
                 </td>
             </tr>
             <tr>
                 <td>
-                    3.<br/>
-                    In A: foo: 0, bar: 0<br/>
-                    In B: foo: 25, bar: 99<br/>
-                    In C: foo: 25, bar: 99      
+                    3. Prints:<br/>
+                    <code>In A: foo: 0, bar: 0</code><br/>
+                    <code>In B: foo: 25, bar: 99</code><br/>
+                    <code>In C: foo: 25, bar: 99</code>     
                 </td>
                 <td>
-                    4.<br/>
-                    In A: foo: 25, bar: 99<br/>
-                    In B: foo: 25, bar: 99<br/>
-                    In C: foo: 25, bar: 99
+                    4. Prints:<br/>
+                    <code>In A: foo: 25, bar: 99</code><br/>
+                    <code>In B: foo: 25, bar: 99</code><br/>
+                    <code>In C: foo: 25, bar: 99</code>
                 </td>
             </tr>
         </table>
@@ -635,20 +649,23 @@
         <p><textarea class='code' display='none' mode='text/x-scala'>trait A {&#x000A;  val foo: Int&#x000A;  val bar = 10&#x000A;  println("In A: foo: " + foo + ", bar: " + bar)&#x000A;}&#x000A;&#x000A;class B extends A {&#x000A;  val foo: Int = 25&#x000A;  println("In B: foo: " + foo + ", bar: " + bar)&#x000A;}&#x000A;&#x000A;class C extends B {&#x000A;  override val bar = 99&#x000A;  println("In C: foo: " + foo + ", bar: " + bar)&#x000A;}&#x000A;&#x000A;new C</textarea>
     </p>
         
-        <p>In A: foo: 0, bar: 0<br/>
-        In B: foo: 25, bar: 0<br/>
-        In C: foo: 25, bar: 99</p>
+        <p>Prints:<br/>
+        <code>In A: foo: 0, bar: 0</code><br/>
+        <code>In B: foo: 25, bar: 0</code><br/>
+        <code>In C: foo: 25, bar: 99</code></p>
         
-        <p> The Scala compiler will only initialize vals once</p>
+        <p>The Scala compiler will only initialize vals once</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
-    <section class='slide'>
+    <section class='left slide top'>
       <div class='spacer top'></div>
       <div class='content'>
         <h1>Thanks!</h1>
         
-        <h1>Questions!</h1>
+        <h2>Any questions?</h2>
+        
+        <p>Slides prepared using replhtml from @retronym: https://gist.github.com/retronym/5520762</p>
       </div>
       <div class='spacer bottom'></div>
     </section>

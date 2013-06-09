@@ -46,12 +46,12 @@
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 400;
-  background-color: #c92323;
+  background-color: #004491;
   padding-bottom: 200px;
   margin-left: -1000px;
-  border-left: 1000px solid #c92323;
+  border-left: 1000px solid #004491;
   margin-right: -10000px;
-  border-right: 10000px solid #c92323;
+  border-right: 10000px solid #004491;
 }
 
 .deck-container .slide .CodeMirror {
@@ -124,9 +124,13 @@
 }
 
 .deck-container td {
-  padding: 25px 85px;
+  padding: 25px 45px;
   -webkit-font-smoothing: antialiased;
   font-family: "Open Sans", "Helvetica Neue", "Helvetica", sans-serif;
   font-size: 40px;
   background: #fff;
+}
+
+.deck-container .slide code {
+  color: #004491;
 }
