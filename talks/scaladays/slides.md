@@ -63,7 +63,7 @@ Andrew Phillips & Nermin Serifovic
 !SLIDE left top
 # Scala Version
 
-<img src="images/version.png" width="1178" height="146">
+<img src="images/version2.png" width="1178" height="146">
 
 
 !SLIDE left top
@@ -249,7 +249,7 @@ Operators ending in *:* are right associative
 # Type Extortion
 ``` text/x-scala
 val (x, y) = (List(1,3,5), List(2,4,6)).zipped find (_._1 > 10) getOrElse (10)
-Console println s"Found $x"
+println(s"Found $x")
 ```
   
 !SLIDE left top
@@ -257,7 +257,7 @@ Console println s"Found $x"
 # Type Extortion
 ``` text/x-scala
 val (x, y) = (List(1,3,5), List(2,4,6)).zipped find (_._1 > 10) getOrElse (10)
-Console println s"Found $x"
+println(s"Found $x")
 ```
 
 1. Prints:<br/>
@@ -273,12 +273,14 @@ Console println s"Found $x"
 # Type Extortion
 ``` text/x-scala
 val (x, y) = (List(1,3,5), List(2,4,6)).zipped find (_._1 > 10) getOrElse (10)
-Console println s"Found $x"
+println(s"Found $x")
 ```
 
 Fails with a runtime exception
 
 *Option.orElse* accepts a wider type, including *Any*
+
+`def getOrElse[B >: A](default: => B): B`
 
 !SLIDE left top
 
@@ -459,7 +461,13 @@ Prints:<br/>
 
 *java.lang.Integer* and *scala.Int* are not *quite* the same.
 
-Daniel Sobral: "Whenever you cast, you lie, and *anything* can come out of it."
+`BoxesRunTime.unboxToInt:`
+
+<code>
+public static int unboxToInt(Object i) {<br/>
+  return i == null ? 0 : ((java.lang.Integer)i).intValue();}
+</code>
+
 
 !SLIDE left top
 
