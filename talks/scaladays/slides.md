@@ -171,30 +171,30 @@ println((rightReversed :\ accumulator) { (elem, acc) => acc :+ elem })
 ```
 
 <table>
-	<tr>
-		<td>
-			1. Prints:<br/>
-			<code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
-			<code>List(1, 2, 3)<br/>List(1, 2, 3)</code>
-		</td>
-		<td>
-			2. Prints:<br/>
-			<code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
-			<code>List(3, 2, 1)<br/>List(3, 2, 1)</code>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			3. Prints:<br/>
-			<code>List(3, 2, 1)<br/>List(1, 2, 3)</code><br/>
-			<code>List(1, 2, 3)<br/>List(3, 2, 1)</code>
-		</td>
-		<td>
-			4. Prints:<br/>
-			<code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
-			<code>List(3, 2, 1)<br/>List(1, 2, 3)</code>
-		</td>
-	</tr>
+  <tr>
+    <td>
+      1. Prints:<br/>
+      <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+      <code>List(1, 2, 3)<br/>List(1, 2, 3)</code>
+    </td>
+    <td>
+      2. Prints:<br/>
+      <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+      <code>List(3, 2, 1)<br/>List(3, 2, 1)</code>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3. Prints:<br/>
+      <code>List(3, 2, 1)<br/>List(1, 2, 3)</code><br/>
+      <code>List(1, 2, 3)<br/>List(3, 2, 1)</code>
+    </td>
+    <td>
+      4. Prints:<br/>
+      <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+      <code>List(3, 2, 1)<br/>List(1, 2, 3)</code>
+    </td>
+  </tr>
 </table>
 
 !SLIDE left top
@@ -296,29 +296,29 @@ println(bX)
 ```
 
 <table>
-	<tr>
-		<td>
-			1. The first fails at runtime<br/> with a <code>NullPointerException</code>,<br>
-			the second prints: <code>0</code>
-		</td>
-		<td>
-			2. Prints:<br/>
-			<code>0</code><br/>
-			<code>0</code>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			3. Prints:<br/>
-			<code>&lt;lazy&gt;</code><br/>
-			<code>null</code>
-		</td>
-		<td>
-			4. Prints:<br/>
-			<code>null</code><br/>
-			<code>0</code>
-		</td>
-	</tr>
+  <tr>
+    <td>
+      1. The first fails at runtime<br/> with a <code>NullPointerException</code>,<br>
+      the second prints: <code>0</code>
+    </td>
+    <td>
+      2. Prints:<br/>
+      <code>0</code><br/>
+      <code>0</code>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3. Prints:<br/>
+      <code>&lt;lazy&gt;</code><br/>
+      <code>null</code>
+    </td>
+    <td>
+      4. Prints:<br/>
+      <code>null</code><br/>
+      <code>0</code>
+    </td>
+  </tr>
 </table>
 
 !SLIDE left top
@@ -381,29 +381,29 @@ println(map("key") == 0)
 ```
 
 <table>
-	<tr>
-		<td>
-			1. Prints:<br/>
-			<code>true</code><br/>
-			<code>true</code>
-		</td>
-		<td>
-			2. Both fail with a <br/>
-			<code>NullPointerException</code>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			3. Prints:<br/>
-			<code>true</code><br/>
-			<code>false</code>
-		</td>
-		<td>
-			4. Prints:<br/>
-			<code>false</code><br/>
-			<code>true</code>
-		</td>
-	</tr>
+  <tr>
+    <td>
+      1. Prints:<br/>
+      <code>true</code><br/>
+      <code>true</code>
+    </td>
+    <td>
+      2. Both fail with a <br/>
+      <code>NullPointerException</code>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3. Prints:<br/>
+      <code>true</code><br/>
+      <code>false</code>
+    </td>
+    <td>
+      4. Prints:<br/>
+      <code>false</code><br/>
+      <code>true</code>
+    </td>
+  </tr>
 </table>
 
 !SLIDE left top
@@ -542,34 +542,34 @@ println("x = " + x)
 ```
 
 <table>
-	<tr>
-		<td>
-			1. Prints: <br/>
-			<code>x = 1, a1 = 12</code><br/>
-			<code>x = 2, a2 = 11</code><br/>
-			<code>x = 2</code>
-		</td>
-		<td>
-			2. Prints: <br/>
-			<code>x = 1, a1 = 11</code><br/>
-			<code>x = 1, a2 = 12</code><br/>
-			<code>x = 2</code>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			3. Prints: <br/>
-			<code>x = 0, a1 = 11</code><br/>
-			<code>x = 1, a2 = 12</code><br/>
-			<code>x = 2</code>		
-		</td>
-		<td>
-			4. Prints: <br/>
-			<code>x = 2, a1 = 11</code><br/>
-			<code>x = 2, a2 = 12</code><br/>
-			<code>x = 2</code>
-		</td>
-	</tr>
+  <tr>
+    <td>
+      1. Prints: <br/>
+      <code>x = 1, a1 = 12</code><br/>
+      <code>x = 2, a2 = 11</code><br/>
+      <code>x = 2</code>
+    </td>
+    <td>
+      2. Prints: <br/>
+      <code>x = 1, a1 = 11</code><br/>
+      <code>x = 1, a2 = 12</code><br/>
+      <code>x = 2</code>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3. Prints: <br/>
+      <code>x = 0, a1 = 11</code><br/>
+      <code>x = 1, a2 = 12</code><br/>
+      <code>x = 2</code>
+    </td>
+    <td>
+      4. Prints: <br/>
+      <code>x = 2, a1 = 11</code><br/>
+      <code>x = 2, a2 = 12</code><br/>
+      <code>x = 2</code>
+    </td>
+  </tr>
 </table>
 
 !SLIDE left top
@@ -638,34 +638,34 @@ new C
 ```
 
 <table>
-	<tr>
-		<td>
-			1. Prints:<br/>
-			<code>In A: foo: 0, bar: 0</code><br/>
-			<code>In B: foo: 25, bar: 0</code><br/>
-			<code>In C: foo: 25, bar: 99
-		</td>
-		<td>
-			2. Prints:<br/>
-			<code>In A: foo: 0, bar: 10</code><br/>
-			<code>In B: foo: 25, bar: 10</code><br/>
-			<code>In C: foo: 25, bar: 99</code>
-		</td>
-	</tr>
-	<tr>
-		<td>
-			3. Prints:<br/>
-			<code>In A: foo: 0, bar: 0</code><br/>
-			<code>In B: foo: 25, bar: 99</code><br/>
-			<code>In C: foo: 25, bar: 99</code>		
-		</td>
-		<td>
-			4. Prints:<br/>
-			<code>In A: foo: 25, bar: 99</code><br/>
-			<code>In B: foo: 25, bar: 99</code><br/>
-			<code>In C: foo: 25, bar: 99</code>
-		</td>
-	</tr>
+  <tr>
+    <td>
+      1. Prints:<br/>
+      <code>In A: foo: 0, bar: 0</code><br/>
+      <code>In B: foo: 25, bar: 0</code><br/>
+      <code>In C: foo: 25, bar: 99
+    </td>
+    <td>
+      2. Prints:<br/>
+      <code>In A: foo: 0, bar: 10</code><br/>
+      <code>In B: foo: 25, bar: 10</code><br/>
+      <code>In C: foo: 25, bar: 99</code>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      3. Prints:<br/>
+      <code>In A: foo: 0, bar: 0</code><br/>
+      <code>In B: foo: 25, bar: 99</code><br/>
+      <code>In C: foo: 25, bar: 99</code>
+    </td>
+    <td>
+      4. Prints:<br/>
+      <code>In A: foo: 25, bar: 99</code><br/>
+      <code>In B: foo: 25, bar: 99</code><br/>
+      <code>In C: foo: 25, bar: 99</code>
+    </td>
+  </tr>
 </table>
 
 !SLIDE left top
