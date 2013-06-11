@@ -7,15 +7,12 @@ Andrew Phillips & Nermin Serifovic
 [@ScalaPuzzlers](http://twitter.com/ScalaPuzzlers) 
 
 !SLIDE left top
-
 # First Things First
 
 ##Thanks!
-
 <img src="images/scaladays.png"/>
 
 !SLIDE left top
-
 # What is a Puzzler?
  * It has to cover an intentional language feature
 
@@ -59,12 +56,9 @@ Andrew Phillips & Nermin Serifovic
  * Should be "surprising" or "non-intuitive" to <br/>a reasonably skilled Scala developer
    - For suitable definitions of <br/>"reasonably skilled" :-)
 
-
 !SLIDE left top
 # Scala Version
-
-<img src="images/version2.png" width="1178" height="146">
-
+<img src="images/version.png" width="1178" height="146">
 
 !SLIDE left top
 # It'll be More Fun if...
@@ -72,15 +66,9 @@ Andrew Phillips & Nermin Serifovic
 
 !SLIDE left top
 # Buckle Up
-
 <img src="images/readysetgo.jpg"/>
- 
-
- 
-   
 
 !SLIDE left top
-
 # A Case of Strings
 ``` text/x-scala
 def objFromJava: Object = "string"
@@ -97,9 +85,7 @@ printLengthIfString(objFromJava)
 printLengthIfString(stringFromJava)
 ```
   
-  
 !SLIDE left top
-
 # A Case of Strings
 ``` text/x-scala
 def objFromJava: Object = "string"
@@ -128,7 +114,6 @@ and the second fails with a `NullPointerException`
 and the second fails with a `NullPointerException`
 
 !SLIDE left top
-
 # A Case of Strings
 ``` text/x-scala
 def objFromJava: Object = "string"
@@ -156,7 +141,6 @@ Must explicitly check for *nulls*.
 What is a better way to handle *nulls*?
 
 !SLIDE left top
-
 # All's Well That Folds Well
 ``` text/x-scala
 val ints = List(1, 2, 3)
@@ -170,11 +154,9 @@ println(rightReversed)
 // ...and back
 println((leftReversed /: accumulator) { (acc, elem) => elem :: acc })
 println((rightReversed :\ accumulator) { (elem, acc) => acc :+ elem })
-
 ```
   
 !SLIDE left top
-
 # All's Well That Folds Well
 ``` text/x-scala
 val ints = List(1, 2, 3)
@@ -216,13 +198,7 @@ println((rightReversed :\ accumulator) { (elem, acc) => acc :+ elem })
 	</tr>
 </table>
 
-
-
-
-
-
 !SLIDE left top
-
 # All's Well That Folds Well
 ``` text/x-scala
 val ints = List(1, 2, 3)
@@ -245,7 +221,6 @@ Prints:<br/>
 Operators ending in *:* are right associative
 
 !SLIDE left top
-
 # Type Extortion
 ``` text/x-scala
 val (x, y) = (List(1,3,5), List(2,4,6)).zipped find (_._1 > 10) getOrElse (10)
@@ -253,7 +228,6 @@ println(s"Found $x")
 ```
   
 !SLIDE left top
-
 # Type Extortion
 ``` text/x-scala
 val (x, y) = (List(1,3,5), List(2,4,6)).zipped find (_._1 > 10) getOrElse (10)
@@ -267,9 +241,7 @@ println(s"Found $x")
 3. Fails with a compilation exception
 4. Fails with a runtime exception
 
-
 !SLIDE left top
-
 # Type Extortion
 ``` text/x-scala
 val (x, y) = (List(1,3,5), List(2,4,6)).zipped find (_._1 > 10) getOrElse (10)
@@ -283,7 +255,6 @@ Fails with a runtime exception
 `def getOrElse[B >: A](default: => B): B`
 
 !SLIDE left top
-
 # Pick an Int, Any Int!
 ``` text/x-scala
 class A {
@@ -303,7 +274,6 @@ println(bX)
 ```
   
 !SLIDE left top
-
 # Pick an Int, Any Int!
 ``` text/x-scala
 class A {
@@ -348,10 +318,7 @@ println(bX)
 	</tr>
 </table>
 
-
-
 !SLIDE left top
-
 # Pick an Int, Any Int!
 ``` text/x-scala
 class A {
@@ -377,7 +344,6 @@ Prints:<br/>
 Field x is uninitialized and *println* takes *Any* as a parameter,<br/> so unboxing does not happen.
 
 !SLIDE left top
-
 # Cast Away
 ``` text/x-scala
 import scala.collection.JavaConverters._
@@ -395,7 +361,6 @@ println(map("key") == 0)
 ```
   
 !SLIDE left top
-
 # Cast Away
 ``` text/x-scala
 import scala.collection.JavaConverters._
@@ -411,6 +376,7 @@ val map = fromJava.asScala.asInstanceOf[scala.collection.Map[String, Int]]
 println(map("key") == null)
 println(map("key") == 0)
 ```
+
 <table>
 	<tr>
 		<td>
@@ -436,9 +402,7 @@ println(map("key") == 0)
 	</tr>
 </table>
 
-
 !SLIDE left top
-
 # Cast Away
 ``` text/x-scala
 import scala.collection.JavaConverters._
@@ -462,15 +426,12 @@ Prints:<br/>
 *java.lang.Integer* and *scala.Int* are not *quite* the same.
 
 `BoxesRunTime.unboxToInt:`
-
 <code>
 public static int unboxToInt(Object i) {<br/>
   return i == null ? 0 : ((java.lang.Integer)i).intValue();}
 </code>
 
-
 !SLIDE left top
-
 # I Can Has Padding?
 ``` text/x-scala
 implicit class Padder(val sb: StringBuilder) extends AnyVal {
@@ -490,7 +451,6 @@ println(farewell pad2 20)
 ```
   
 !SLIDE left top
-
 # I Can Has Padding?
 ``` text/x-scala
 implicit class Padder(val sb: StringBuilder) extends AnyVal {
@@ -520,7 +480,6 @@ and the second one fails with a runtime exception
 4. Does not compile
 
 !SLIDE left top
-
 # I Can Has Padding?
 ``` text/x-scala
 implicit class Padder(val sb: StringBuilder) extends AnyVal {
@@ -546,7 +505,6 @@ and the second one fails with a runtime exception
 Scala has a StringBuilder that shadows *java.lang.StringBuilder* and it has an apply method which is an alias for *StringBuilder.charAt*
 
 !SLIDE left top
-
 # Count Me Now, Count Me Later
 ``` text/x-scala
 var x = 0
@@ -561,7 +519,6 @@ println("x = " + x)
 ```
   
 !SLIDE left top
-
 # Count Me Now, Count Me Later
 ``` text/x-scala
 var x = 0
@@ -574,6 +531,7 @@ println("x = " + x + ", a1= " + adder1(10))
 println("x = " + x + ", a2= " + adder2(10))
 println("x = " + x)
 ```
+
 <table>
 	<tr>
 		<td>
@@ -606,7 +564,6 @@ println("x = " + x)
 </table>
 
 !SLIDE left top
-
 # Count Me Now, Count Me Later
 ``` text/x-scala
 var x = 0
@@ -628,7 +585,6 @@ Prints: <br/>
 These two *adders* have different semantics<br/> as to when the arguments get evaluated.
 
 !SLIDE left top
-
 # The Trouble With Traits 2
 ``` text/x-scala
 trait A {
@@ -651,7 +607,6 @@ new C
 ```
   
 !SLIDE left top
-
 # The Trouble With Traits 2
 ``` text/x-scala
 trait A {
@@ -672,6 +627,7 @@ class C extends B {
 
 new C
 ```
+
 <table>
 	<tr>
 		<td>
@@ -704,7 +660,6 @@ new C
 </table>
 
 !SLIDE left top
-
 # The Trouble With Traits 2
 ``` text/x-scala
 trait A {
@@ -733,15 +688,9 @@ Prints:<br/>
 
 The Scala compiler will only initialize vals once
 
-
-
-
 !SLIDE left top
 # Thanks! 
 
 ## Any questions?
 
-Slides prepared using replhtml from @retronym: https://gist.github.com/retronym/5520762
-
-
-
+Slides prepared using [replhtml](https://gist.github.com/retronym/5520762) from [@retronym](https://twitter.com/retronym)
