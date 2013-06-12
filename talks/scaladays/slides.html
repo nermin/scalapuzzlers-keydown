@@ -8,18 +8,18 @@
     <link href="deck.js/core/deck.core.css" rel="stylesheet" type="text/css"/>
     <!-- deck.js extension CSS files -->
     <link href="deck.js/extensions/deck.js-codemirror/deck.codemirror.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/navigation/deck.navigation.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/scale/deck.scale.css" rel="stylesheet" type="text/css"/>
     <link href="deck.js/extensions/goto/deck.goto.css" rel="stylesheet" type="text/css"/>
     <link href="deck.js/extensions/hash/deck.hash.css" rel="stylesheet" type="text/css"/>
     <link href="deck.js/extensions/menu/deck.menu.css" rel="stylesheet" type="text/css"/>
-    <link href="deck.js/extensions/navigation/deck.navigation.css" rel="stylesheet" type="text/css"/>
-    <link href="deck.js/extensions/scale/deck.scale.css" rel="stylesheet" type="text/css"/>
     <link href="deck.js/extensions/status/deck.status.css" rel="stylesheet" type="text/css"/>
     <!-- all css in the css dir: Keydown CSS, your custom CSS, and themes from deck.js -->
     <link href="css/keydown.css" rel="stylesheet" type="text/css"/>
-    <link href="css/ambiance.css" rel="stylesheet" type="text/css"/>
-    <link href="css/default.css" rel="stylesheet" type="text/css"/>
     <link href="css/night.css" rel="stylesheet" type="text/css"/>
+    <link href="css/default.css" rel="stylesheet" type="text/css"/>
     <link href="css/scala-puzzlers.css" rel="stylesheet" type="text/css"/>
+    <link href="css/ambiance.css" rel="stylesheet" type="text/css"/>
     <link href="css/swiss.css" rel="stylesheet" type="text/css"/>
     <!-- Modernizr (provided for legacy browsers) -->
     <script src="deck.js/support/modernizr.custom.js" type="text/javascript"></script>
@@ -28,7 +28,7 @@
     <section class='intro slide'>
       <div class='spacer top'></div>
       <div class='content'>
-        <p><img src="images/logo2.png"/>
+        <p><img src="images/logo2.png" alt="Scala Puzzlers logo" />
         Andrew Phillips &amp; Nermin Serifovic</p>
         
         <p><a href="http://twitter.com/ScalaPuzzlers">@ScalaPuzzlers</a></p>
@@ -42,7 +42,7 @@
         
         <h2>Thanks!</h2>
         
-        <p><img src="images/scaladays.png"/></p>
+        <p><img src="images/scaladays.png" alt="Scala Days logo" /></p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -168,7 +168,7 @@
       <div class='content'>
         <h1>Scala Version</h1>
         
-        <p><img src="images/version2.png" width="1178" height="146"></p>
+        <p><img src="images/version.png" alt="Scala REPL" width="1178" height="146"></p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -177,7 +177,7 @@
       <div class='content'>
         <h1>It'll be More Fun if...</h1>
         
-        <p><img src="images/terminal2.png" width="1099" height="749"></p>
+        <p><img src="images/terminal2.png" alt="Crossed out REPL" width="1099" height="749"></p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -186,7 +186,7 @@
       <div class='content'>
         <h1>Buckle Up</h1>
         
-        <p><img src="images/readysetgo.jpg"/></p>
+        <p><img src="images/readysetgo.jpg" alt="Sprinting runner" /></p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -209,16 +209,16 @@
     </p>
         
         <ol>
-        <li>Prints:<br/>
+        <li><p>Prints:<br/>
         <code>Not a string</code><br/>
-        <code>String of length 0</code></li>
-        <li>The first prints: <code>Not a string</code><br/>
-        and the second fails with a <code>NullPointerException</code></li>
-        <li>Prints:<br/>
+        <code>String of length 0</code></p></li>
+        <li><p>The first prints: <code>Not a string</code><br/>
+        and the second fails with a <code>NullPointerException</code></p></li>
+        <li><p>Prints:<br/>
         <code>String of length 6</code><br/>
-        <code>Not a string</code></li>
-        <li>The first prints: <code>String of length 6</code><br/>
-        and the second fails with a <code>NullPointerException</code></li>
+        <code>Not a string</code></p></li>
+        <li><p>The first prints: <code>String of length 6</code><br/>
+        and the second fails with a <code>NullPointerException</code></p></li>
         </ol>
       </div>
       <div class='spacer bottom'></div>
@@ -235,11 +235,11 @@
         <code>String of length 6</code><br/>
         <code>Not a string</code></p>
         
-        <p><em>null</em> is not an instance of String (inherited from Java)</p>
+        <p><code>null</code> is not an instance of String (inherited from Java)</p>
         
-        <p>Must explicitly check for <em>nulls</em>.</p>
+        <p>Must explicitly check for <code>null</code>s.</p>
         
-        <p>What is a better way to handle <em>nulls</em>?</p>
+        <p>What is a better way to handle <code>null</code>s?</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -262,30 +262,30 @@
     </p>
         
         <table>
-            <tr>
-                <td>
-                    1. Prints:<br/>
-                    <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
-                    <code>List(1, 2, 3)<br/>List(1, 2, 3)</code>
-                </td>
-                <td>
-                    2. Prints:<br/>
-                    <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
-                    <code>List(3, 2, 1)<br/>List(3, 2, 1)</code>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    3. Prints:<br/>
-                    <code>List(3, 2, 1)<br/>List(1, 2, 3)</code><br/>
-                    <code>List(1, 2, 3)<br/>List(3, 2, 1)</code>
-                </td>
-                <td>
-                    4. Prints:<br/>
-                    <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
-                    <code>List(3, 2, 1)<br/>List(1, 2, 3)</code>
-                </td>
-            </tr>
+          <tr>
+            <td>
+              1. Prints:<br/>
+              <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+              <code>List(1, 2, 3)<br/>List(1, 2, 3)</code>
+            </td>
+            <td>
+              2. Prints:<br/>
+              <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+              <code>List(3, 2, 1)<br/>List(3, 2, 1)</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              3. Prints:<br/>
+              <code>List(3, 2, 1)<br/>List(1, 2, 3)</code><br/>
+              <code>List(1, 2, 3)<br/>List(3, 2, 1)</code>
+            </td>
+            <td>
+              4. Prints:<br/>
+              <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
+              <code>List(3, 2, 1)<br/>List(1, 2, 3)</code>
+            </td>
+          </tr>
         </table>
       </div>
       <div class='spacer bottom'></div>
@@ -299,10 +299,12 @@
     </p>
         
         <p>Prints:<br/>
-        <code>List(3, 2, 1)<br/>List(3, 2, 1)</code><br/>
-        <code>List(3, 2, 1)<br/>List(1, 2, 3)</code></p>
+        <code>List(3, 2, 1)</code><br/>
+        <code>List(3, 2, 1)</code><br/>
+        <code>List(3, 2, 1)</code><br/>
+        <code>List(1, 2, 3)</code></p>
         
-        <p>Operators ending in <em>:</em> are right associative</p>
+        <p>Operators ending in <code>:</code> are right associative.</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -325,11 +327,11 @@
     </p>
         
         <ol>
-        <li>Prints:<br/>
-        <code>Found 10</code></li>
-        <li>Prints:<br/>
-        <code>Found ()</code></li>
-        <li>Fails with a compilation exception</li>
+        <li><p>Prints:<br/>
+        <code>Found 10</code></p></li>
+        <li><p>Prints:<br/>
+        <code>Found ()</code></p></li>
+        <li><p>Fails with a compilation exception</p></li>
         <li>Fails with a runtime exception</li>
         </ol>
       </div>
@@ -345,7 +347,7 @@
         
         <p>Fails with a runtime exception</p>
         
-        <p><em>Option.orElse</em> accepts a wider type, including <em>Any</em></p>
+        <p><a href="www.scala-lang.org/api/current/index.html#scala.Option">Option.orElse</a> accepts a wider type, including <code>Any</code>:</p>
         
         <p><code>def getOrElse[B &gt;: A](default: =&gt; B): B</code></p>
       </div>
@@ -370,29 +372,29 @@
     </p>
         
         <table>
-            <tr>
-                <td>
-                    1. The first fails at runtime<br/> with a <code>NullPointerException</code>,<br>
-                    the second prints: <code>0</code>
-                </td>
-                <td>
-                    2. Prints:<br/>
-                    <code>0</code><br/>
-                    <code>0</code>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    3. Prints:<br/>
-                    <code>&lt;lazy&gt;</code><br/>
-                    <code>null</code>
-                </td>
-                <td>
-                    4. Prints:<br/>
-                    <code>null</code><br/>
-                    <code>0</code>
-                </td>
-            </tr>
+          <tr>
+            <td>
+              1. The first fails at runtime<br/> with a <code>NullPointerException</code>,<br>
+              the second prints: <code>0</code>
+            </td>
+            <td>
+              2. Prints:<br/>
+              <code>0</code><br/>
+              <code>0</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              3. Prints:<br/>
+              <code>&lt;lazy&gt;</code><br/>
+              <code>null</code>
+            </td>
+            <td>
+              4. Prints:<br/>
+              <code>null</code><br/>
+              <code>0</code>
+            </td>
+          </tr>
         </table>
       </div>
       <div class='spacer bottom'></div>
@@ -409,7 +411,7 @@
         <code>null</code><br/>
         <code>0</code></p>
         
-        <p>Field x is uninitialized and <em>println</em> takes <em>Any</em> as a parameter,<br/> so unboxing does not happen.</p>
+        <p>Field <code>x</code> is uninitialized and <code>println</code> takes <code>Any</code> as a parameter, so unboxing does not happen.</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -432,28 +434,29 @@
     </p>
         
         <table>
-            <tr>
-                <td>
-                    1. Prints:<br/>
-                    <code>true</code><br/>
-                    <code>true</code>
-                </td>
-                <td>
-                    2. Both fail with a <br/><code>NullPointerException</code>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    3. Prints:<br/>
-                    <code>true</code><br/>
-                    <code>false</code>
-                </td>
-                <td>
-                    4. Prints:<br/>
-                    <code>false</code><br/>
-                    <code>true</code>
-                </td>
-            </tr>
+          <tr>
+            <td>
+              1. Prints:<br/>
+              <code>true</code><br/>
+              <code>true</code>
+            </td>
+            <td>
+              2. Both fail with a <br/>
+              <code>NullPointerException</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              3. Prints:<br/>
+              <code>true</code><br/>
+              <code>false</code>
+            </td>
+            <td>
+              4. Prints:<br/>
+              <code>false</code><br/>
+              <code>true</code>
+            </td>
+          </tr>
         </table>
       </div>
       <div class='spacer bottom'></div>
@@ -470,14 +473,12 @@
         <code>true</code><br/>
         <code>true</code></p>
         
-        <p><em>java.lang.Integer</em> and <em>scala.Int</em> are not <em>quite</em> the same.</p>
+        <p><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html"><code>java.lang.Integer</code></a> and <a href="http://www.scala-lang.org/api/current/index.html#scala.Int"><code>scala.Int</code></a> are not <em>quite</em> the same.</p>
         
-        <p><code>BoxesRunTime.unboxToInt:</code></p>
+        <p><a href="https://github.com/scala/scala/blob/master/src/library/scala/runtime/BoxesRunTime.java#L105"><code>BoxesRunTime.unboxToInt</code></a>:</p>
         
-        <p><code>
-        public static int unboxToInt(Object i) {<br/>
-          return i == null ? 0 : ((java.lang.Integer)i).intValue();}
-        </code></p>
+        <p><textarea class='code' display='none' mode='text/x-java'>public static int unboxToInt(Object i) {&#x000A;  return i == null ? 0 : ((java.lang.Integer)i).intValue();&#x000A;}</textarea>
+    </p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -500,15 +501,15 @@
     </p>
         
         <ol>
-        <li>Prints:<br/>
-        <code>Hello, kitteh!&#42;&#42;&#42;&#42;&#42;&#42;</code><br/>
-        <code>U go now.&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;</code></li>
-        <li>The first one succeeds and prints:
-        <code>Hello, kitteh!&#42;</code><br/>
-        and the second one fails with a runtime exception</li>
-        <li>The first one fails with a runtime exception<br/> and the second one prints:
-        <code>U go now.&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;&#42;</code></li>
-        <li>Does not compile</li>
+        <li><p>Prints:<br/>
+        <code>Hello, kitteh!******</code><br/>
+        <code>U go now.***********</code></p></li>
+        <li><p>The first one succeeds and prints:
+        <code>Hello, kitteh!*</code><br/>
+        and the second one fails with a runtime exception</p></li>
+        <li><p>The first one fails with a runtime exception<br/>
+        and the second one prints: <code>U go now.***********</code></p></li>
+        <li><p>Fails with a compilation exception</p></li>
         </ol>
       </div>
       <div class='spacer bottom'></div>
@@ -522,10 +523,10 @@
     </p>
         
         <p>The first one succeeds and prints:<br/>
-        <code>Hello, kitteh!&#42;</code><br/>
+        <code>Hello, kitteh!*</code><br/>
         and the second one fails with a runtime exception</p>
         
-        <p>Scala has a StringBuilder that shadows <em>java.lang.StringBuilder</em> and it has an apply method which is an alias for <em>StringBuilder.charAt</em></p>
+        <p>Scala has a <a href="http://www.scala-lang.org/api/current/index.html#scala.collection.mutable.StringBuilder"><code>StringBuilder</code></a> that shadows <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html"><code>java.lang.StringBuilder</code></a> and it has an <code>apply</code> method which is an alias for <code>StringBuilder.charAt</code>.</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -548,34 +549,34 @@
     </p>
         
         <table>
-            <tr>
-                <td>
-                    1. Prints: <br/>
-                    <code>x = 1, a1 = 12</code><br/>
-                    <code>x = 2, a2 = 11</code><br/>
-                    <code>x = 2</code>
-                </td>
-                <td>
-                    2. Prints: <br/>
-                    <code>x = 1, a1 = 11</code><br/>
-                    <code>x = 1, a2 = 12</code><br/>
-                    <code>x = 2</code>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    3. Prints: <br/>
-                    <code>x = 0, a1 = 11</code><br/>
-                    <code>x = 1, a2 = 12</code><br/>
-                    <code>x = 2</code>      
-                </td>
-                <td>
-                    4. Prints: <br/>
-                    <code>x = 2, a1 = 11</code><br/>
-                    <code>x = 2, a2 = 12</code><br/>
-                    <code>x = 2</code>
-                </td>
-            </tr>
+          <tr>
+            <td>
+              1. Prints: <br/>
+              <code>x = 1, a1 = 12</code><br/>
+              <code>x = 2, a2 = 11</code><br/>
+              <code>x = 2</code>
+            </td>
+            <td>
+              2. Prints: <br/>
+              <code>x = 1, a1 = 11</code><br/>
+              <code>x = 1, a2 = 12</code><br/>
+              <code>x = 2</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              3. Prints: <br/>
+              <code>x = 0, a1 = 11</code><br/>
+              <code>x = 1, a2 = 12</code><br/>
+              <code>x = 2</code>
+            </td>
+            <td>
+              4. Prints: <br/>
+              <code>x = 2, a1 = 11</code><br/>
+              <code>x = 2, a2 = 12</code><br/>
+              <code>x = 2</code>
+            </td>
+          </tr>
         </table>
       </div>
       <div class='spacer bottom'></div>
@@ -588,12 +589,12 @@
         <p><textarea class='code' display='none' mode='text/x-scala'>var x = 0&#x000A;def counter = { x += 1; x }&#x000A;def add(a: Int)(b: Int) = a + b&#x000A;val adder1 = add(counter)(_)&#x000A;val adder2 = add(counter) _&#x000A;&#x000A;println("x = " + x + ", a1= " + adder1(10))&#x000A;println("x = " + x + ", a2= " + adder2(10))&#x000A;println("x = " + x)</textarea>
     </p>
         
-        <p>Prints: <br/>
+        <p>Prints:<br/>
         <code>x = 1, a1 = 12</code><br/>
         <code>x = 2, a2 = 11</code><br/>
         <code>x = 2</code></p>
         
-        <p>These two <em>adders</em> have different semantics<br/> as to when the arguments get evaluated.</p>
+        <p>These two adders have different semantics as to when the arguments get evaluated.</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -616,34 +617,34 @@
     </p>
         
         <table>
-            <tr>
-                <td>
-                    1. Prints:<br/>
-                    <code>In A: foo: 0, bar: 0</code><br/>
-                    <code>In B: foo: 25, bar: 0</code><br/>
-                    <code>In C: foo: 25, bar: 99
-                </td>
-                <td>
-                    2. Prints:<br/>
-                    <code>In A: foo: 0, bar: 10</code><br/>
-                    <code>In B: foo: 25, bar: 10</code><br/>
-                    <code>In C: foo: 25, bar: 99</code>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    3. Prints:<br/>
-                    <code>In A: foo: 0, bar: 0</code><br/>
-                    <code>In B: foo: 25, bar: 99</code><br/>
-                    <code>In C: foo: 25, bar: 99</code>     
-                </td>
-                <td>
-                    4. Prints:<br/>
-                    <code>In A: foo: 25, bar: 99</code><br/>
-                    <code>In B: foo: 25, bar: 99</code><br/>
-                    <code>In C: foo: 25, bar: 99</code>
-                </td>
-            </tr>
+          <tr>
+            <td>
+              1. Prints:<br/>
+              <code>In A: foo: 0, bar: 0</code><br/>
+              <code>In B: foo: 25, bar: 0</code><br/>
+              <code>In C: foo: 25, bar: 99
+            </td>
+            <td>
+              2. Prints:<br/>
+              <code>In A: foo: 0, bar: 10</code><br/>
+              <code>In B: foo: 25, bar: 10</code><br/>
+              <code>In C: foo: 25, bar: 99</code>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              3. Prints:<br/>
+              <code>In A: foo: 0, bar: 0</code><br/>
+              <code>In B: foo: 25, bar: 99</code><br/>
+              <code>In C: foo: 25, bar: 99</code>
+            </td>
+            <td>
+              4. Prints:<br/>
+              <code>In A: foo: 25, bar: 99</code><br/>
+              <code>In B: foo: 25, bar: 99</code><br/>
+              <code>In C: foo: 25, bar: 99</code>
+            </td>
+          </tr>
         </table>
       </div>
       <div class='spacer bottom'></div>
@@ -661,7 +662,7 @@
         <code>In B: foo: 25, bar: 0</code><br/>
         <code>In C: foo: 25, bar: 99</code></p>
         
-        <p>The Scala compiler will only initialize vals once</p>
+        <p>The Scala compiler will only initialize <code>val</code>s once.</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -672,7 +673,7 @@
         
         <h2>Any questions?</h2>
         
-        <p>Slides prepared using replhtml from @retronym: https://gist.github.com/retronym/5520762</p>
+        <p>Slides prepared using <a href="https://gist.github.com/retronym/5520762">replhtml</a> from <a href="https://twitter.com/retronym">@retronym</a>.</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -687,6 +688,13 @@
       /
       <span class='deck-status-total'></span>
     </p>
+    <!-- 
+      Unfortunately, it appears CodeMirror is sensitive to the order in which
+      these scripts are loaded, and keydown generates them in a
+      non-deterministic order :-(
+      So we have to fix that by storing this (derived, really) file in source
+      control to ensure a working script load order.
+    -->
     <!-- jQuery & deck.js -->
     <script src="deck.js/support/jquery.1.6.4.min.js" type="text/javascript"></script>
     <script src="deck.js/core/deck.core.js" type="text/javascript"></script>
