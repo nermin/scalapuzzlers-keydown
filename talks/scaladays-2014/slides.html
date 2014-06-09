@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scala Puzzlers Reloaded</title>
+    <meta charset='utf-8'>
+    <meta content='width=1024, user-scalable=no' name='viewport'>
+    <!-- deck.js's core css -->
+    <link href="deck.js/core/deck.core.css" rel="stylesheet" type="text/css"/>
+    <!-- deck.js extension CSS files -->
+    <link href="deck.js/extensions/deck.js-codemirror/deck.codemirror.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/goto/deck.goto.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/hash/deck.hash.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/menu/deck.menu.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/navigation/deck.navigation.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/scale/deck.scale.css" rel="stylesheet" type="text/css"/>
+    <link href="deck.js/extensions/status/deck.status.css" rel="stylesheet" type="text/css"/>
+    <!-- all css in the css dir: Keydown CSS, your custom CSS, and themes from deck.js -->
+    <link href="css/keydown.css" rel="stylesheet" type="text/css"/>
+    <link href="css/ambiance.css" rel="stylesheet" type="text/css"/>
+    <link href="css/default.css" rel="stylesheet" type="text/css"/>
+    <link href="css/night.css" rel="stylesheet" type="text/css"/>
+    <link href="css/scala-puzzlers.css" rel="stylesheet" type="text/css"/>
+    <link href="css/swiss.css" rel="stylesheet" type="text/css"/>
+    <!-- Modernizr (provided for legacy browsers) -->
+    <script src="deck.js/support/modernizr.custom.js" type="text/javascript"></script>
+  </head>
+  <body class='deck-container keydown'>
+    <section class='intro slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Laugh, Then Learn:</h2>
+        
+        <p><img src="images/logo2.png"/></p>
+        
+        <h2>Returns!</h2>
+        
+        <p>Andrew Phillips &amp; Nermin Serifovic</p>
+        
+        <p><a href="http://twitter.com/ScalaPuzzlers">@ScalaPuzzlers</a></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>First Things First</h1>
+        
+        <h2>Thanks!</h2>
+        
+        <p><img src="images/scaladays.png"/></p>
+        
+        <p>Slides prepared using <strong>replhtml</strong>
+        from @retronym: https://gist.github.com/retronym/5520762</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What is a Puzzler?</h1>
+        
+        <ul>
+        <li>It has to cover an intentional language feature</li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What is a Puzzler?</h1>
+        
+        <ul>
+        <li>It has to cover an intentional language feature
+        
+        <ul>
+        <li>So no bugs</li>
+        </ul>
+        </li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What is a Puzzler?</h1>
+        
+        <ul>
+        <li>It has to cover an intentional language feature
+        
+        <ul>
+        <li>So no bugs</li>
+        </ul>
+        </li>
+        <li>Not just weird because you don't know Scala</li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What is a Puzzler?</h1>
+        
+        <ul>
+        <li>It has to cover an intentional language feature
+        
+        <ul>
+        <li>So no bugs</li>
+        </ul>
+        </li>
+        <li>Not just weird because you don't know Scala
+        
+        <ul>
+        <li>So no "what is this weird operator?!?"</li>
+        </ul>
+        </li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What is a Puzzler?</h1>
+        
+        <ul>
+        <li>It has to cover an intentional language feature
+        
+        <ul>
+        <li>So no bugs</li>
+        </ul>
+        </li>
+        <li>Not just weird because you don't know Scala
+        
+        <ul>
+        <li>So no "what is this weird operator?!?"</li>
+        </ul>
+        </li>
+        <li>Should be "surprising" or "non-intuitive" to <br/>a reasonably skilled Scala developer</li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What is a Puzzler?</h1>
+        
+        <ul>
+        <li>It has to cover an intentional language feature
+        
+        <ul>
+        <li>So no bugs</li>
+        </ul>
+        </li>
+        <li>Not just weird because you don't know Scala
+        
+        <ul>
+        <li>So no "what is this weird operator?!?"</li>
+        </ul>
+        </li>
+        <li>Should be "surprising" or "non-intuitive" to <br/>a reasonably skilled Scala developer
+        
+        <ul>
+        <li>For suitable definitions of <br/>"reasonably skilled" :-)</li>
+        </ul>
+        </li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>It'll be More Fun if...</h1>
+        
+        <p><img src="images/terminal2.png" width="1099" height="749"></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Shameless Plug: There is a book</h1>
+        
+        <p><div alight="center">
+        <img src="images/puzzlersCover.gif"/></p>
+        
+        <p>scalapuzzlers.com/buy-the-book</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Buckle Up</h1>
+        
+        <p><img src="images/readysetgo.jpg"/></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Stringy Conversions</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>class A {&#x000A;  implicit val stringToInt = (_: String).toInt&#x000A;  println("4" - 2)&#x000A;}&#x000A;&#x000A;class B {&#x000A;  implicit val stringToInt: String => Int = _.toInt&#x000A;  println("4" - 2)&#x000A;}&#x000A;&#x000A;new A()&#x000A;new B()</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Stringy Conversions</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>class A {&#x000A;  implicit val stringToInt = (_: String).toInt&#x000A;  println("4" - 2)&#x000A;}&#x000A;&#x000A;class B {&#x000A;  implicit val stringToInt: String => Int = _.toInt&#x000A;  println("4" - 2)&#x000A;}&#x000A;&#x000A;new A()&#x000A;new B()</textarea>
+    </p>
+        
+        <ol>
+        <li>Prints:<br/>
+        <code>2</code><br/>
+        <code>2</code></li>
+        <li>The first statement prints: <code>2</code><br/>
+        and the second throws a runtime exception</li>
+        <li>The first statement fails to compile<br/>
+        and the second prints: <code>2</code></li>
+        <li>The first statement fails to compile<br/>
+        and the second throws a runtime exception</li>
+        </ol>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Stringy Conversions</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>class A {&#x000A;  implicit val stringToInt = (_: String).toInt&#x000A;  println("4" - 2)&#x000A;}&#x000A;&#x000A;class B {&#x000A;  implicit val stringToInt: String => Int = _.toInt&#x000A;  println("4" - 2)&#x000A;}&#x000A;&#x000A;new A()&#x000A;new B()</textarea>
+    </p>
+        
+        <p>Answer #2:<br/>
+        The first statement prints: <code>2</code><br/>
+        and the second throws a runtime exception</p>
+        
+        <p><code>stringToInt</code> from <code>A</code> is available when invoking <code>B</code><br/>
+        which causes an infinite loop</p>
+        
+        <p>Miles Sabin: "Don't do this!"</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Size It Up</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>import collection.mutable&#x000A;&#x000A;def howManyItems(lunchbox: mutable.Set[String], &#x000A;                 itemToAdd: String): Int =&#x000A;  (lunchbox + itemToAdd).size&#x000A;  &#x000A;def howManyItemsRefac(lunchbox: mutable.Iterable[String], &#x000A;                      itemToAdd: String): Int = &#x000A;  (lunchbox + itemToAdd).size&#x000A;&#x000A;val lunchbox = mutable.Set("chocolate", "juice", "sandwich")&#x000A;&#x000A;println(howManyItems(lunchbox, "apple"))&#x000A;println(howManyItemsRefac(lunchbox, "apple"))&#x000A;println(lunchbox.size)</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Size It Up</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>import collection.mutable&#x000A;&#x000A;def howManyItems(lunchbox: mutable.Set[String], &#x000A;                 itemToAdd: String): Int =&#x000A;  (lunchbox + itemToAdd).size&#x000A;  &#x000A;def howManyItemsRefac(lunchbox: mutable.Iterable[String], &#x000A;                      itemToAdd: String): Int = &#x000A;  (lunchbox + itemToAdd).size&#x000A;&#x000A;val lunchbox = mutable.Set("chocolate", "juice", "sandwich")&#x000A;&#x000A;println(howManyItems(lunchbox, "apple"))&#x000A;println(howManyItemsRefac(lunchbox, "apple"))&#x000A;println(lunchbox.size)</textarea>
+    </p>
+        
+        <table>
+            <tr>
+                <td style="padding:10px 155px;">
+                    1. Prints:<br/>
+                    <code>4<br/>5<br/>5</br/></code>
+                </td>
+                <td style="padding:10px 155px;">
+                    2. Prints:<br/>
+                    <code>4<br/>4<br/>3</br/></code>        
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:10px 155px;">
+                    3. Prints:<br/>
+                    <code>4<br/>4<br/>4</br/></code>        
+                </td>
+                <td style="padding:10px 155px;">
+                    4. Prints:<br/>
+                    <code>4<br/>43<br/>3</br/></code>       
+                </td>
+            </tr>
+        </table>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Size It Up</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>import collection.mutable&#x000A;&#x000A;def howManyItems(lunchbox: mutable.Set[String], &#x000A;                 itemToAdd: String): Int =&#x000A;  (lunchbox + itemToAdd).size&#x000A;  &#x000A;def howManyItemsRefac(lunchbox: mutable.Iterable[String], &#x000A;                      itemToAdd: String): Int = &#x000A;  (lunchbox + itemToAdd).size&#x000A;&#x000A;val lunchbox = mutable.Set("chocolate", "juice", "sandwich")&#x000A;&#x000A;println(howManyItems(lunchbox, "apple"))&#x000A;println(howManyItemsRefac(lunchbox, "apple"))&#x000A;println(lunchbox.size)</textarea>
+    </p>
+        
+        <p>Answer #4:<br/>
+        <code>4<br/>43<br/>3</br/></code></p>
+        
+        <p><code>+</code> is defined for <code>Set</code>, but not for <code>Iterable</code></p>
+        
+        <p>So, the second <code>+</code> represents <code>String</code> concatentation</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>One, Two, Skip a Few</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>val oneTwo = Seq(1, 2).permutations&#x000A;&#x000A;if (oneTwo.length > 0) {&#x000A;  println("Permutations of 1 and 2:")&#x000A;  oneTwo foreach println&#x000A;}&#x000A;&#x000A;val threeFour = Seq(3, 4).permutations&#x000A;&#x000A;if (!threeFour.isEmpty) {&#x000A;  println("Permutations of 3 and 4:")&#x000A;  threeFour foreach println&#x000A;}</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>One, Two, Skip a Few</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>val oneTwo = Seq(1, 2).permutations&#x000A;&#x000A;if (oneTwo.length > 0) {&#x000A;  println("Permutations of 1 and 2:")&#x000A;  oneTwo foreach println&#x000A;}&#x000A;&#x000A;val threeFour = Seq(3, 4).permutations&#x000A;&#x000A;if (!threeFour.isEmpty) {&#x000A;  println("Permutations of 3 and 4:")&#x000A;  threeFour foreach println&#x000A;}</textarea>
+    </p>
+        
+        <table>
+            <tr>
+                <td>
+                    1. Prints:<br/>
+                    Permutations of 1 and 2:<br/>
+                    <code>List(1, 2)</code><br/>
+                    <code>List(2, 1)</code><br/>
+                    Permutations of 3 and 4:<br/>
+                    <code>List(3, 4)</code><br/>
+                    <code>List(4, 3)</code>
+                </td>
+                <td>
+                    2. Prints:<br/>
+                    Permutations of 1 and 2:<br/>
+                    <code>List(1, 2)</code><br/>
+                    Permutations of 3 and 4:<br/>
+                    <code>List(3, 4)</code>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3. Prints:<br/>
+                    Permutations of 1 and 2:<br/>
+                    <code>List(1, 2)</code><br/>
+                    <code>List(2, 1)</code> 
+                </td>
+                <td>
+                    4. Prints:<br/>
+                    Permutations of 1 and 2:<br/>
+                    Permutations of 3 and 4:<br/>
+                    <code>List(3, 4)</code><br/>
+                    <code>List(4, 3)</code>
+                </td>
+            </tr>
+        </table>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>One, Two, Skip a Few</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>val oneTwo = Seq(1, 2).permutations&#x000A;&#x000A;if (oneTwo.length > 0) {&#x000A;  println("Permutations of 1 and 2:")&#x000A;  oneTwo foreach println&#x000A;}&#x000A;&#x000A;val threeFour = Seq(3, 4).permutations&#x000A;&#x000A;if (!threeFour.isEmpty) {&#x000A;  println("Permutations of 3 and 4:")&#x000A;  threeFour foreach println&#x000A;}</textarea>
+    </p>
+        
+        <p>Answer #4:<br/>
+        Permutations of 1 and 2:<br/>
+        Permutations of 3 and 4:<br/>
+        <code>List(3, 4)</code><br/>
+        <code>List(4, 3)</code></p>
+        
+        <p><code>permutations</code> returns an <code>Iterator</code></p>
+        
+        <p>Except after <code>next</code> and <code>hasNext</code>, never use an iterator<br/>
+        after calling a method on it.</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>A Listful of Dollars</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>type Dollar = Int&#x000A;final val Dollar: Dollar = 1&#x000A;val a: List[Dollar] = List(1, 2, 3)&#x000A;&#x000A;println(a map { a: Int => Dollar })&#x000A;println(a.map(a: Int => Dollar))</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>A Listful of Dollars</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>type Dollar = Int&#x000A;final val Dollar: Dollar = 1&#x000A;val a: List[Dollar] = List(1, 2, 3)&#x000A;&#x000A;println(a map { a: Int => Dollar })&#x000A;println(a.map(a: Int => Dollar))</textarea>
+    </p>
+        
+        <table>
+            <tr>
+                <td>
+                    1. Prints:<br/>
+                    <code>
+                    List(1, 2, 3)<br/>
+                    List(1, 2, 3)
+                    </code>         
+                </td>
+                <td>
+                    2. The first one prints:<br/>
+                    <code>List(1, 1, 1)</code><br/>
+                    and the second one throws<br/> a runtime exception
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3. Prints:<br/>
+                    <code>
+                    List(1, 1, 1)<br/>
+                    List(1, 1, 1)
+                    </code>
+                </td>
+                <td>
+                    4. The first one prints:<br/>
+                    <code>List(1, 2, 3)</code><br/>
+                    and the second one fails<br/> to compile
+                </td>
+            </tr>
+        </table>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>A Listful of Dollars</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>type Dollar = Int&#x000A;final val Dollar: Dollar = 1&#x000A;val a: List[Dollar] = List(1, 2, 3)&#x000A;&#x000A;println(a map { a: Int => Dollar })&#x000A;println(a.map(a: Int => Dollar))</textarea>
+    </p>
+        
+        <p>Answer #2:<br/>
+        The first one prints: <code>List(1, 1, 1)</code><br/>
+        and the second one throws a runtime exception</p>
+        
+        <p><code>{ a: Int =&gt; Dollar }</code> is parsed as:<br/> <code>{ (a: Int) =&gt; Dollar }</code></p>
+        
+        <p><code>(a: Int =&gt; Dollar)</code> is parsed as:<br/> <code>(a: (Int =&gt; Dollar)}</code></p>
+        
+        <p><code>List</code> is a <code>Function1</code></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>The Devil Is in the Defaults</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>import collection.mutable.Queue&#x000A;&#x000A;val goodies: Map[String, Queue[String]] = &#x000A;  Map().withDefault(_ => Queue("Keep looking."))&#x000A;  &#x000A;val baddies: Map[String, Queue[String]] = &#x000A;  Map().withDefaultValue(Queue("Nothing here."))&#x000A;&#x000A;println(goodies("kitchen").dequeue)&#x000A;println(baddies("in attic").dequeue)&#x000A;println(goodies("dining room").dequeue)&#x000A;println(baddies("under bed").dequeue)</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>The Devil Is in the Defaults</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>import collection.mutable.Queue&#x000A;&#x000A;val goodies: Map[String, Queue[String]] = &#x000A;  Map().withDefault(_ => Queue("Keep looking."))&#x000A;  &#x000A;val baddies: Map[String, Queue[String]] = &#x000A;  Map().withDefaultValue(Queue("Nothing here."))&#x000A;&#x000A;println(goodies("kitchen").dequeue)&#x000A;println(baddies("in attic").dequeue)&#x000A;println(goodies("dining room").dequeue)&#x000A;println(baddies("under bed").dequeue)</textarea>
+    </p>
+        
+        <table>
+            <tr>
+                <td>
+                    1. First, second & third print:<br/>
+                    <code>
+                    Keep looking.<br/>
+                    Nothing here.<br/>
+                    Keep looking.<br/>
+                    </code>
+                    and the forth throws a runtime exception
+                </td>
+                <td>
+                    2. First & second print:<br/>
+                    <code>
+                    Keep looking.<br/>
+                    Nothing here.<br/>
+                    </code>
+                    and third & forth throw a runtime exception
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3. All four throw a runtime exception.
+                </td>
+                <td>
+                    4. Prints:<br/>
+                    <code>
+                    Keep looking.<br/>
+                    Nothing here.<br/>
+                    Keep looking.<br/>
+                    Nothing here.<br/>
+                    </code>
+                </td>
+            </tr>
+        </table>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>The Devil Is in the Defaults</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>import collection.mutable.Queue&#x000A;&#x000A;val goodies: Map[String, Queue[String]] = &#x000A;  Map().withDefault(_ => Queue("Keep looking."))&#x000A;  &#x000A;val baddies: Map[String, Queue[String]] = &#x000A;  Map().withDefaultValue(Queue("Nothing here."))&#x000A;&#x000A;println(goodies("kitchen").dequeue)&#x000A;println(baddies("in attic").dequeue)&#x000A;println(goodies("dining room").dequeue)&#x000A;println(baddies("under bed").dequeue)</textarea>
+    </p>
+        
+        <p>Answer #1:<br/>
+        First, second &amp; third print:<br/>
+        <code>
+        Keep looking.<br/>
+        Nothing here.<br/>
+        Keep looking.<br/>
+        </code>
+        and the forth throws a runtime exception</p>
+        
+        <p>The value provided for <code>withDefaultValue</code><br/>
+        is shared across all map entries.</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Return to Me!</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>def value: Int = {&#x000A;  def one(x: Int): Int = { return x; 1 }&#x000A;  val two = (x: Int) => { return x; 2 }&#x000A;  1 + one(2) + two(3)&#x000A;}&#x000A;&#x000A;println(value)</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Return to Me!</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>def value: Int = {&#x000A;  def one(x: Int): Int = { return x; 1 }&#x000A;  val two = (x: Int) => { return x; 2 }&#x000A;  1 + one(2) + two(3)&#x000A;}&#x000A;&#x000A;println(value)</textarea>
+    </p>
+        
+        <ol>
+        <li>Prints: <code>3</code></li>
+        <li>Prints: <code>4</code></li>
+        <li>Prints: <code>6</code></li>
+        <li>Fails with an unreachable code compilation error</li>
+        </ol>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Return to Me!</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>def value: Int = {&#x000A;  def one(x: Int): Int = { return x; 1 }&#x000A;  val two = (x: Int) => { return x; 2 }&#x000A;  1 + one(2) + two(3)&#x000A;}&#x000A;&#x000A;println(value)</textarea>
+    </p>
+        
+        <p>Answer #1:<br/>
+        Prints <code>3</code></p>
+        
+        <p><code>return</code> statement returns from enclosing <code>def</code></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Set the Record Straight</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>val numbers = List("1", "2").toSet() + "3"&#x000A;&#x000A;println(numbers)</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Set the Record Straight</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>val numbers = List("1", "2").toSet() + "3"&#x000A;&#x000A;println(numbers)</textarea>
+    </p>
+        
+        <ol>
+        <li>Prints: <code>Set(1, 2, 3)</code></li>
+        <li>Fails with a compilation error</li>
+        <li>Prints: <code>false3</code></li>
+        <li>Prints: <code>123</code></li>
+        </ol>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Set the Record Straight</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>val numbers = List("1", "2").toSet() + "3"&#x000A;&#x000A;println(numbers)</textarea>
+    </p>
+        
+        <p>Answer #3:<br/>
+        Prints: <code>false3</code></p>
+        
+        <p><code>toSet</code> method is parameterless</p>
+        
+        <p>empty argument list is adapted to <code>(): Unit</code></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What's in a Name?</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>class C {&#x000A;  def sum(x: Int = 1, y: Int = 2): Int = x + y&#x000A;}&#x000A;&#x000A;class D extends C {&#x000A;  override def sum(y: Int = 3, x: Int = 4): Int = super.sum(x, y)&#x000A;}&#x000A;&#x000A;val d: D = new D&#x000A;val c: C = d&#x000A;println(c.sum(x = 0))&#x000A;println(d.sum(x = 0))</textarea>
+    </p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What's in a Name?</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>class C {&#x000A;  def sum(x: Int = 1, y: Int = 2): Int = x + y&#x000A;}&#x000A;&#x000A;class D extends C {&#x000A;  override def sum(y: Int = 3, x: Int = 4): Int = super.sum(x, y)&#x000A;}&#x000A;&#x000A;val d: D = new D&#x000A;val c: C = d&#x000A;println(c.sum(x = 0))&#x000A;println(d.sum(x = 0))</textarea>
+    </p>
+        
+        <table>
+          <tr>
+            <td style="padding:10px 155px;">
+                1. Prints:<br/>
+                <code>
+                    2<br/>
+                    3<br/>  
+                </code> 
+            </td>
+            <td style="padding:10px 155px;">
+                2. Prints:<br/>
+                <code>
+                    1<br/>
+                    3<br/>  
+                </code> 
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:10px 155px;">
+                3. Prints:<br/>
+                <code>
+                    4<br/>
+                    3<br/>  
+                </code> 
+            </td>
+            <td style="padding:10px 155px;">
+                4. Prints:<br/>
+                <code>
+                    3<br/>
+                    3<br/>  
+                </code> 
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>What's in a Name?</h1>
+        
+        <p><textarea class='code' display='none' mode='text/x-scala'>class C {&#x000A;  def sum(x: Int = 1, y: Int = 2): Int = x + y&#x000A;}&#x000A;&#x000A;class D extends C {&#x000A;  override def sum(y: Int = 3, x: Int = 4): Int = super.sum(x, y)&#x000A;}&#x000A;&#x000A;val d: D = new D&#x000A;val c: C = d&#x000A;println(c.sum(x = 0))&#x000A;println(d.sum(x = 0))</textarea>
+    </p>
+        
+        <p>Answer #3:<br/>
+        Prints:<br/>
+        <code>
+        4<br/>
+        3<br/><br/>
+        </code></p>
+        
+        <p>As Josh Suereth summarizes:<br/> <strong>Names are static; values are runtime.</strong></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h1>Thanks!</h1>
+        
+        <h2>Any questions?</h2>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <!-- deck.js navigation extension -->
+    <a class='deck-prev-link' href='#' title='Previous'>&#8592;</a>
+    <a class='deck-next-link' href='#' title='Next'>&#8594;</a>
+    <!-- deck.js hash extension -->
+    <a class='deck-permalink' href='.' title='Permalink to this slide'>#</a>
+    <!-- deck.js status extension -->
+    <p class='deck-status'>
+      <span class='deck-status-current'></span>
+      /
+      <span class='deck-status-total'></span>
+    </p>
+    <!-- jQuery & deck.js -->
+    <script src="deck.js/support/jquery.1.6.4.min.js" type="text/javascript"></script>
+    <script src="deck.js/core/deck.core.js" type="text/javascript"></script>
+    <!-- deck.js extension JS files -->
+    <script src="deck.js/extensions/deck.js-codemirror/codemirror.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/deck.codemirror.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/introduction/introduction.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/introduction/modernizr.custom.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/clike/clike.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/clojure/clojure.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/coffeescript/coffeescript.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/css/css.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/diff/diff.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/haskell/haskell.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/htmlmixed/htmlmixed.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/javascript/javascript.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/lua/lua.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/php/php.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/plsql/plsql.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/python/python.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/r/r.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/rst/rst.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/ruby/ruby.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/scheme/scheme.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/smalltalk/smalltalk.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/sparql/sparql.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/stex/stex.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/velocity/velocity.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/xml/xml.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/xmlpure/xmlpure.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/mode/yaml/yaml.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/deck.js-codemirror/scala_completion.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/goto/deck.goto.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/hash/deck.hash.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/menu/deck.menu.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/navigation/deck.navigation.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/scale/deck.scale.js" type="text/javascript"></script>
+    <script src="deck.js/extensions/status/deck.status.js" type="text/javascript"></script>
+    <!-- your custom JS here, including call to initialize deck.js-codemirror -->
+    <script src="js/scala-puzzlers.js" type="text/javascript"></script>
+    <!-- Initialize the deck. -->
+    <script type='text/javascript'>
+      $(function() { $.deck('.slide'); });
+    </script>
+  </body>
+</html>
