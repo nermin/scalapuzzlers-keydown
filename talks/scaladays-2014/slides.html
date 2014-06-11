@@ -57,6 +57,18 @@
     <section class='left slide top'>
       <div class='spacer top'></div>
       <div class='content'>
+        <h1>Shameless Plug</h1>
+        
+        <p><div alight="center">
+        <img src="images/puzzlersCover.gif"/></p>
+        
+        <p>scalapuzzlers.com/buy-the-book</p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide top'>
+      <div class='spacer top'></div>
+      <div class='content'>
         <h1>What is a Puzzler?</h1>
         
         <ul>
@@ -183,18 +195,6 @@
     <section class='left slide top'>
       <div class='spacer top'></div>
       <div class='content'>
-        <h1>Shameless Plug: There is a book</h1>
-        
-        <p><div alight="center">
-        <img src="images/puzzlersCover.gif"/></p>
-        
-        <p>scalapuzzlers.com/buy-the-book</p>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
-    <section class='left slide top'>
-      <div class='spacer top'></div>
-      <div class='content'>
         <h1>Buckle Up</h1>
         
         <p><img src="images/readysetgo.jpg"/></p>
@@ -245,8 +245,9 @@
         The first statement prints: <code>2</code><br/>
         and the second throws a runtime exception</p>
         
-        <p><code>stringToInt</code> from <code>A</code> is available when invoking <code>B</code><br/>
-        which causes an infinite loop</p>
+        <p>Since type of <code>stringToInt</code> in <code>B</code> is known upfront,<br/>
+        it is selected to perform the conversion,<br/>
+        causing an infinite loop</p>
         
         <p>Miles Sabin: "Don't do this!"</p>
       </div>
@@ -308,7 +309,8 @@
         
         <p><code>+</code> is defined for <code>Set</code>, but not for <code>Iterable</code></p>
         
-        <p>So, the second <code>+</code> represents <code>String</code> concatentation</p>
+        <p>So, the second <code>+</code> represents <code>String</code> concatentation<br/>
+        and this applies because of the existence of the evil <code>any2stringadd</code></p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -384,7 +386,7 @@
         
         <p><code>permutations</code> returns an <code>Iterator</code></p>
         
-        <p>Except after <code>next</code> and <code>hasNext</code>, never use an iterator<br/>
+        <p>Never call any methods except <code>next</code> and <code>hasNext</code> on an iterator<br/>
         after calling a method on it.</p>
       </div>
       <div class='spacer bottom'></div>
@@ -456,7 +458,9 @@
         
         <p><code>(a: Int =&gt; Dollar)</code> is parsed as:<br/> <code>(a: (Int =&gt; Dollar)}</code></p>
         
-        <p><code>List</code> is a <code>Function1</code></p>
+        <p><code>List</code> is a <code>Function1</code> and <code>{ ... }</code> can enclose a <em>ResultExpr</em>,<br/>
+        whereas <code>( ... )</code> can only enclose an <em>Expr</em>.
+        A <em>ResultExpr</em>, but not an <em>Expr</em>, can include a type specification for its argument.</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -560,7 +564,7 @@
         <li>Prints: <code>3</code></li>
         <li>Prints: <code>4</code></li>
         <li>Prints: <code>6</code></li>
-        <li>Fails with an unreachable code compilation error</li>
+        <li>Fails with a compilation error: unreachable code</li>
         </ol>
       </div>
       <div class='spacer bottom'></div>
@@ -576,7 +580,8 @@
         <p>Answer #1:<br/>
         Prints <code>3</code></p>
         
-        <p><code>return</code> statement returns from enclosing <code>def</code></p>
+        <p><code>return</code> statement returns from enclosing <code>def</code><br/>
+        and function values do not qualify as an enclosing function.</p>
       </div>
       <div class='spacer bottom'></div>
     </section>
@@ -620,7 +625,10 @@
         
         <p><code>toSet</code> method is parameterless</p>
         
-        <p>empty argument list is adapted to <code>(): Unit</code></p>
+        <p>empty argument list is adapted to <code>(): Unit</code><br/>
+        and is passed to the apply method on the resulting set,<br/>
+        which tests for inclusion of an item in the set.<br/>
+        This is likely to "go away" in future versions.</p>
       </div>
       <div class='spacer bottom'></div>
     </section>

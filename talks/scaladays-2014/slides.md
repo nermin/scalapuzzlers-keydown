@@ -20,6 +20,14 @@ Slides prepared using **replhtml**
 from @retronym: https://gist.github.com/retronym/5520762
 
 !SLIDE left top
+# Shameless Plug
+<div alight="center">
+<img src="images/puzzlersCover.gif"/>
+
+scalapuzzlers.com/buy-the-book
+
+
+!SLIDE left top
 
 # What is a Puzzler?
  * It has to cover an intentional language feature 
@@ -68,13 +76,6 @@ from @retronym: https://gist.github.com/retronym/5520762
 !SLIDE left top
 # It'll be More Fun if...
 <img src="images/terminal2.png" width="1099" height="749">
-
-!SLIDE left top
-# Shameless Plug: There is a book
-<div alight="center">
-<img src="images/puzzlersCover.gif"/>
-
-scalapuzzlers.com/buy-the-book
 
 
 !SLIDE left top
@@ -155,8 +156,9 @@ Answer #2:<br/>
 The first statement prints: `2`<br/> 
 and the second throws a runtime exception
 
-`stringToInt` from `A` is available when invoking `B`<br/>
-which causes an infinite loop
+Since type of `stringToInt` in `B` is known upfront,<br/>
+it is selected to perform the conversion,<br/>
+causing an infinite loop
 
 Miles Sabin: "Don't do this!"
 
@@ -255,7 +257,8 @@ Answer #4:<br/>
 
 `+` is defined for `Set`, but not for `Iterable`
 
-So, the second `+` represents `String` concatentation
+So, the second `+` represents `String` concatentation<br/>
+and this applies because of the existence of the evil `any2stringadd`
 
 !SLIDE left top
 
@@ -358,7 +361,7 @@ Permutations of 3 and 4:<br/>
 
 `permutations` returns an `Iterator`
 
-Except after `next` and `hasNext`, never use an iterator<br/>
+Never call any methods except `next` and `hasNext` on an iterator<br/>
 after calling a method on it.
 
 !SLIDE left top
@@ -438,7 +441,9 @@ and the second one throws a runtime exception
 
 `(a: Int => Dollar)` is parsed as:<br/> `(a: (Int => Dollar)}`
 
-`List` is a `Function1`
+`List` is a `Function1` and `{ ... }` can enclose a *ResultExpr*,<br/> 
+whereas `( ... )` can only enclose an *Expr*. 
+A *ResultExpr*, but not an *Expr*, can include a type specification for its argument.
 
 !SLIDE left top
 
@@ -571,7 +576,7 @@ println(value)
 1. Prints: `3`
 2. Prints: `4`
 3. Prints: `6`
-4. Fails with an unreachable code compilation error
+4. Fails with a compilation error: unreachable code
 
 
 
@@ -591,7 +596,8 @@ println(value)
 Answer #1:<br/> 
 Prints `3`
 
-`return` statement returns from enclosing `def`
+`return` statement returns from enclosing `def`<br/>
+and function values do not qualify as an enclosing function.
 
 !SLIDE left top
 
@@ -630,7 +636,10 @@ Prints: `false3`
 
 `toSet` method is parameterless
 
-empty argument list is adapted to `(): Unit`
+empty argument list is adapted to `(): Unit`<br/>
+and is passed to the apply method on the resulting set,<br/> 
+which tests for inclusion of an item in the set.<br/> 
+This is likely to "go away" in future versions.
 
 !SLIDE left top
 
