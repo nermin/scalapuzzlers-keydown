@@ -27,6 +27,9 @@ from @retronym: https://gist.github.com/retronym/5520762
 scalapuzzlers.com/buy-the-book
 
 
+Scala Days discount:  
+## scaladays2014
+
 !SLIDE left top
 
 # What is a Puzzler?
@@ -221,7 +224,7 @@ println(lunchbox.size)
 		</td>
 		<td style="padding:10px 155px;">
 			4. Prints:<br/>
-			<code>4<br/>43<br/>3</br/></code>		
+			<code>4<br/>36<br/>3</br/></code>		
 		</td>
 	</tr>
 </table>
@@ -253,7 +256,7 @@ println(lunchbox.size)
 ```
 
 Answer #4:<br/>
-<code>4<br/>43<br/>3</br/></code>	
+<code>4<br/>36<br/>3</br/></code>	
 
 `+` is defined for `Set`, but not for `Iterable`
 
@@ -359,7 +362,8 @@ Permutations of 3 and 4:<br/>
 <code>List(3, 4)</code><br/>
 <code>List(4, 3)</code>
 
-`permutations` returns an `Iterator`
+`permutations` returns an `Iterator`  
+which is **mutable**
 
 Never call any methods except `next` and `hasNext` on an iterator<br/>
 after calling a method on it.
