@@ -8,6 +8,8 @@ Andrew Phillips & Nermin Serifovic
 
 [@ScalaPuzzlers](http://twitter.com/ScalaPuzzlers) 
 
+**Use left and right arrows for navigation.**
+
 !SLIDE left top
 
 # First Things First
